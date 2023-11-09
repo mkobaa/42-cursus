@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 02:16:05 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/07 02:47:38 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/07 22:25:25 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 
 	i = 0;
-	ptr = (char *) malloc(sizeof(char) * (len + 1));
+	ptr = 0;
+	if (start >= ft_strlen(s) || len == 0)
+		return (ft_strdup(""));
 	if (len > ft_strlen(s))
-	{
-		return (NULL);
-	}
+		ptr = (char *) malloc(sizeof(char) * (ft_strlen(s) + 1));
+	else if (len <= ft_strlen(s))
+		ptr = (char *) malloc(sizeof(char) * (len + 1));
 	if (!ptr)
-	{
 		return (NULL);
-	}
 	while (s[start] != 0 && i < len)
 	{
 		ptr[i] = s[start];
@@ -34,5 +34,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 	}
 	ptr[i] = 0;
-	return ptr;
+	return (ptr);
 }
