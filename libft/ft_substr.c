@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 02:16:05 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/07 22:25:25 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/12 18:33:52 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
 	size_t	i;
-	char	*ptr;
+	size_t	strlen;
 
-	i = 0;
-	ptr = 0;
-	if (start >= ft_strlen(s) || len == 0)
-		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		ptr = (char *) malloc(sizeof(char) * (ft_strlen(s) + 1));
-	else if (len <= ft_strlen(s))
-		ptr = (char *) malloc(sizeof(char) * (len + 1));
-	if (!ptr)
+	if (!s)
 		return (NULL);
-	while (s[start] != 0 && i < len)
+	strlen = ft_strlen(s);
+	if (start >= strlen || len == 0)
+		return (ft_strdup(""));
+	if (len > strlen - start)
+		len = strlen - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
 	{
-		ptr[i] = s[start];
-		start++;
+		substr[i] = s[start + i];
 		i++;
 	}
-	ptr[i] = 0;
-	return (ptr);
+	substr[i] = '\0';
+	return (substr);
 }

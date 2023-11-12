@@ -6,11 +6,22 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:47:10 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/08 22:12:21 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/12 18:45:41 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	skip_spaces(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\n' 
+		|| str[i] == '\t' || str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
+		i++;
+	return (i);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -18,12 +29,9 @@ int	ft_atoi(const char *str)
 	int	sign;
 	int	rslt;
 
-	i = 0;
+	i = skip_spaces(str);
 	rslt = 0;
 	sign = 0;
-	while (str[i] == ' ' || str[i] == '\n' 
-		|| str[i] == '\t' || str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
-		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
 		sign++;
@@ -42,8 +50,8 @@ int	ft_atoi(const char *str)
 		return (rslt);
 	return (0);
 }
-
-/*int main()
-{
-	printf("%d", ft_atoi("-+548"));
-}*/
+// #include <stdio.h>
+// int main()
+// {
+// 	printf("%d", ft_atoi("-+548"));
+// }

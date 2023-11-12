@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 03:39:21 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/10 20:31:59 by mkobaa           ###   ########.fr       */
+/*   Created: 2023/11/10 18:30:42 by mkobaa            #+#    #+#             */
+/*   Updated: 2023/11/12 18:34:05 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	src_len;
-	size_t	i;
+	int		i;
+	char	*ptr;
 
-	src_len = ft_strlen(src);
-	if (dstsize > 0)
+	i = 0;
+	ptr = (char *) malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!ptr)
 	{
-		if (dstsize - 1 < src_len)
-		{
-			i = dstsize - 1;
-		}
-		else
-		{
-			i = src_len;
-		}
-		ft_memcpy(dst, src, i);
-		dst[i] = '\0';
+		return (0);
 	}
-	return (src_len);
+	while (s[i] != 0)
+	{
+		ptr[i] = f(i, s[i]);
+		i++;
+	}
+	ptr[i] = 0;
+	return (ptr);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char h[] = "hello world !";
-// 	char *d;
-// 	printf("%zu",ft_strlcpy(h, d, 20));
-// }

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "chrono": "c",
+        "sstream": "c",
+        "__locale": "c"
+    }
+}
