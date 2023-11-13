@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:26:25 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/11 13:14:11 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/13 18:22:35 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,20 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	index;
 	size_t	i;
-	size_t	dstlen;
-	size_t	srclen;
+	size_t	dst_len;
+	size_t	src_len;
 
-	index = 0;
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	dstlen = ft_strlen(dst);
-	i = dstlen;
-	srclen = ft_strlen(src);
-	if (dst != 0 && srclen == 0)
-		return (dstlen + dstsize);
-	if (dstsize == 0 || dstsize <= dstlen)
-		return (srclen + dstsize);
-	while (src [index] != '\0' && index < dstsize - dstlen - 1)
+	i = 0;
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dstsize <= dst_len)
+		return dstsize + src_len;
+	while (i < dstsize - dst_len - 1 && src[i] != '\0')
 	{
-		dst[i] = src[index];
-		index++;
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (dstlen + srclen);
+	dst[dst_len + i] = '\0';
+	return dst_len + src_len;
 }
-
-// int main()
-// {
-// 	char dst[13] = "hello";
-// 	char dst1[13] = "hello";
-// 	const char *src = " world!";
-// 	size_t dstsize = ft_strlen(dst) + ft_strlen(src) + 1;
-// 	printf("strlcat return: %lu\n", strlcat(dst, src, dstsize));
-// 	printf("dst: %s\n", dst);
-// 	printf("my function return: %lu\n", ft_strlcat(dst1, src, dstsize));
-// 	printf("my function: %s\n", dst);
-// 	return 0;
-// }
