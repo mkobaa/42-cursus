@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:47:10 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/12 18:45:41 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/18 10:52:13 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,3 @@ int	ft_atoi(const char *str)
 		return (rslt);
 	return (0);
 }
-// #include <stdio.h>
-// int main()
-// {
-// 	printf("%d", ft_atoi("-+548"));
-// }

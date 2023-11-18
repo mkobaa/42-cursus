@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:43:02 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/12 16:22:32 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/18 10:54:19 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ptr[i] = 0;
 	return (ptr);
 }
-
-/*int main()
-{
-	char a[] = "Abc";
-	char b[] = "def";
-	char *c = ft_strjoin(a, b);
-	printf("%s", c);
-}*/

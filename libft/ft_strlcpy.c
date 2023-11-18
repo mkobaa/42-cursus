@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 03:39:21 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/10 20:31:59 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/18 10:54:23 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (src_len);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char h[] = "hello world !";
-// 	char *d;
-// 	printf("%zu",ft_strlcpy(h, d, 20));
-// }

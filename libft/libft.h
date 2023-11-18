@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:51:23 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/13 15:32:59 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/15 14:48:22 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif

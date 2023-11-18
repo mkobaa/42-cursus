@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:55:59 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/12 22:13:25 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/18 10:52:33 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-// #include <stdio.h>
-// int main()
-// {
-// 	printf("%s", ft_itoa(-134864));
-// }

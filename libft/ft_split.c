@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:15:08 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/13 15:00:06 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/18 10:53:16 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,27 +97,3 @@ char	**ft_split(char const *s, char c)
 	str = ft_fill(str, s, c);
 	return (str);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-//     char const *input_string = "Hello World,Split,Me";
-//     char c = ',';
-//     char **result = ft_split(input_string, c);
-//     int i = 0;
-//     while (result[i] != NULL)
-//     {
-//         printf("%s\n", result[i]);
-//         i++;
-//     }
-//     i = 0;
-//     while (result[i] != NULL)
-//     {
-//         free(result[i]);
-//         i++;
-//     }
-//     free(result);
-
-//     return 0;
-// }

@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:13:12 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/08 17:15:30 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/18 10:54:39 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	j = ft_strlen(s1) - 1;
 	k = 0;
+	if (s1[0] == 0)
+		return (ft_strdup(""));
 	while (ft_strchr(set, s1[i]))
 		i++;
 	while (ft_strchr(set, s1[j]))
@@ -33,18 +35,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	while (i <= j)
 	{
-		ptr[k] = s1[i];
-		k++;
-		i++;
+		ptr[k++] = s1[i++];
 	}
 	ptr[k] = 0;
 	return (ptr);
 }
-
-// int main()
-// {
-//     char *s1 = "";
-//  	char *s2 = "";
-//  	char *ret = ft_strtrim("", "");
-//  	printf("%s", ret);
-// }
