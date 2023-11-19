@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:21:21 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/07 02:18:47 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:01:16 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i] != 0)
 	{
 		ft_putchar_fd(s[i], fd);

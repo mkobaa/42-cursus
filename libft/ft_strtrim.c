@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:13:12 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/18 10:54:39 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:02:40 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!ptr)
 		return (NULL);
 	while (i <= j)
-	{
 		ptr[k++] = s1[i++];
-	}
 	ptr[k] = 0;
 	return (ptr);
 }

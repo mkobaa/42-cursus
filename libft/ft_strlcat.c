@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:26:25 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/13 23:13:12 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:01:56 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	src_len;
 
 	i = 0;
+	if (!dstsize)
+		return (ft_strlen(src));
+	if (dstsize <= 0)
+		return (0);
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	if (dstsize <= dst_len)

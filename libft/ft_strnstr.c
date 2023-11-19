@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:46:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/07 00:46:16 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:02:27 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		return ((char *)haystack);
 	}
+	if (len == 0)
+		return (NULL);
 	while (haystack[i] != 0 && len >= ft_strlen(needle))
 	{
 		if (ft_strncmp((char *)&haystack[i], needle, ft_strlen(needle)) == 0)

@@ -6,19 +6,11 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:15:08 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/18 10:53:16 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:01:25 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	*ft_free(char **str, int i)
-{
-	while (i--)
-		free(str[i]);
-	free(str);
-	return (NULL);
-}
 
 static int	count_words(char const *s, char c)
 {
@@ -57,7 +49,15 @@ static int	word_len(const char *s, char c)
 	return (i);
 }
 
-char	**ft_fill(char **str, char const *s, char c)
+static void	*ft_free(char **str, int i)
+{
+	while (i--)
+		free(str[i]);
+	free(str);
+	return (NULL);
+}
+
+static char	**ft_fill(char **str, char const *s, char c)
 {
 	int		i;
 	int		j;

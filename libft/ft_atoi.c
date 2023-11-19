@@ -6,13 +6,13 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:47:10 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/18 10:52:13 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:22:22 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	skip_spaces(const char *str)
+static int	skip_spaces(const char *str)
 {
 	int	i;
 
@@ -49,4 +49,10 @@ int	ft_atoi(const char *str)
 	else if (sign == 0)
 		return (rslt);
 	return (0);
+}
+#include <stdio.h>
+int main()
+{
+	char str[] = "-887rtg";
+	printf("%d", ft_atoi(str));
 }

@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:43:02 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/18 10:54:19 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:01:44 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (s1 == 0 || s2 == 0)
+		return (NULL);
 	ptr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!ptr)
-	{
 		return (NULL);
-	}
 	while (s1[i] != 0)
 	{
 		ptr[i] = s1[i];
@@ -39,3 +39,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ptr[i] = 0;
 	return (ptr);
 }
+// #include <stdio.h>
+// int main()
+// {
+// 	char a[] = "Abc";
+// 	char b[] = "def";
+// 	char *c = ft_strjoin(a, b);
+// 	printf("%s", c);
+// }

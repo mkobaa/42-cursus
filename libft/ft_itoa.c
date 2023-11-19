@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:55:59 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/18 10:52:33 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:00:32 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "libft.h"
 
-int	count_n(int count)
+static int	count_n(int count)
 {
 	int	index;
 
