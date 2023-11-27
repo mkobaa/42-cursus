@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 02:16:05 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/19 17:02:45 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/27 12:01:01 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	strlen;
 
-	if (!s)
+	if (s == 0)
 		return (NULL);
 	strlen = ft_strlen(s);
 	if (start >= strlen || len == 0)
