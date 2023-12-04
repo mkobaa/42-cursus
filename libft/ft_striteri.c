@@ -6,15 +6,19 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:41:53 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/26 17:21:00 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/30 18:13:19 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int		i;
 
 	i = 0;
+	if (!s || !f)
+		return ;
 	while (s[i] != 0)
 	{
 		f(i, &s[i]);

@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:47:10 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/26 17:22:02 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/11/29 20:34:00 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,27 @@ static int	skip_spaces(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	rslt;
+	long	rslt;
+	int		i;
+	int		sign;
+	long	max;
 
+	sign = 1;
 	i = skip_spaces(str);
 	rslt = 0;
-	sign = 0;
-	while (str[i] == '-' || str[i] == '+')
-	{
-		sign++;
-		i++;
-	}
-	if (sign == 1 && str[i - 1] == '-')
-		sign *= -1;
+	max = 0;
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			sign = -1;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		rslt = rslt * 10 + (str[i] - '0');
+		if (rslt < max && sign == -1)
+			return (0);
+		if (rslt < max && sign == 1)
+			return (-1);
 		i++;
+		max = rslt;
 	}
-	if (sign == -1 || sign == 1)
-		return (rslt * sign);
-	else if (sign == 0)
-		return (rslt);
-	return (0);
+	return ((int)(sign * rslt));
 }

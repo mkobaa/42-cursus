@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 18:30:42 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/26 17:20:51 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/12/04 15:33:02 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ptr;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	ptr = (char *) malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!ptr)
