@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 06:30:40 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/24 06:41:59 by mkobaa           ###   ########.fr       */
+/*   Created: 2023/12/06 15:53:44 by mkobaa            #+#    #+#             */
+/*   Updated: 2023/12/07 21:04:47 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 void	ft_putstr(char *str)
 {
-	int	i;
-
+	int i;
+	
 	i = 0;
 	while (str[i] != 0)
 	{
-		write(1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
 }
-
-// int main()
-// {
-// 	char c[] = "Hello World!";
-// 	ft_putstr(c);
-// }
