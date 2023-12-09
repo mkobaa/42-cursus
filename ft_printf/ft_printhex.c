@@ -1,21 +1,39 @@
 #include "ft_printf.h"
 
-void ft_printhexmaj(int num)
+int ft_printhexmaj(int num)
 {
     char hexDigits[] = "0123456789ABCDEF";
+    int length = 0;
+
+    if (num == 0) {
+        ft_putchar(hexDigits[0]);
+        return 1;
+    }
 
     if (num > 0) {
-        ft_printhexmaj(num / 16);
-        putchar(hexDigits[num % 16]);
+        length += ft_printhexmaj(num / 16);
+        ft_putchar(hexDigits[num % 16]);
+        length++;
     }
+
+    return length;
 }
 
-void ft_printhex(int num)
+int ft_printhex(int num)
 {
     char hexDigits[] = "0123456789abcdef";
+    int length = 0;
+
+    if (num == 0) {
+        ft_putchar(hexDigits[0]);
+        return 1;
+    }
 
     if (num > 0) {
-        ft_printhex(num / 16);
-        putchar(hexDigits[num % 16]);
+        length += ft_printhex(num / 16);
+        ft_putchar(hexDigits[num % 16]);
+        length++;
     }
+
+    return length;
 }

@@ -6,13 +6,15 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:55:32 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/12/07 21:07:54 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/12/08 20:31:59 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
 }
