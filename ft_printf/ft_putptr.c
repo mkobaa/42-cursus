@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 20:50:50 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/12/13 01:05:42 by mkobaa           ###   ########.fr       */
+/*   Created: 2023/12/12 20:21:47 by mkobaa            #+#    #+#             */
+/*   Updated: 2023/12/12 20:46:06 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
-
-int	ft_putchar(char c);
-int ft_putlowerhex(unsigned long num);
-int ft_putnbr(long nb);
-int ft_putstr(char *str);
-void ft_putunsigned(long nb);
-int ft_putupperhex(unsigned long num);
-int ft_unsignedlen(long nbr);
-int ft_putptr(void *ptr);
-
-#endif
+int ft_putptr(void *ptr)
+{
+    unsigned long ptr_value = (unsigned long)ptr;
+    write(1, "0x", 2);
+    return 2 + ft_putlowerhex(ptr_value);
+}

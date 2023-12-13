@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putupperhex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 20:50:50 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/12/13 01:05:42 by mkobaa           ###   ########.fr       */
+/*   Created: 2023/12/11 14:36:46 by mkobaa            #+#    #+#             */
+/*   Updated: 2023/12/12 20:45:38 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdio.h>
+int ft_putupperhex(unsigned long num)
+{
+    char hex_digits[] = "0123456789ABCDEF";
+    int count = 0;
 
-int	ft_putchar(char c);
-int ft_putlowerhex(unsigned long num);
-int ft_putnbr(long nb);
-int ft_putstr(char *str);
-void ft_putunsigned(long nb);
-int ft_putupperhex(unsigned long num);
-int ft_unsignedlen(long nbr);
-int ft_putptr(void *ptr);
+    if (num >= 16)
+    {
+        count += ft_putupperhex(num / 16);
+    }
+    ft_putchar(hex_digits[num % 16]);
+    count++;
 
-#endif
+    return count;
+}

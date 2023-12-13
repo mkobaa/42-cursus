@@ -5,29 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 15:53:44 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/12/08 21:33:36 by mkobaa           ###   ########.fr       */
+/*   Created: 2023/12/10 22:20:27 by mkobaa            #+#    #+#             */
+/*   Updated: 2023/12/12 23:41:35 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    if (str == NULL) {
-        // Handle the case where str is NULL
-        ft_putstr("(null)");
-        return 6; // Return the number of characters printed for "(null)"
-    }
+	int	i;
 
-    int i = 0;
-
-    while (str[i] != '\0') {
-        ft_putchar(str[i]);
-        i++;
-    }
-
-    return i;
+	if (!str)
+		return (write(1, "(null)", 6));
+	i = 0;
+	while (str[i] != 0)
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }
-
-

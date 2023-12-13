@@ -1,26 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/11 13:49:06 by mkobaa            #+#    #+#             */
+/*   Updated: 2023/12/13 01:19:58 by mkobaa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-
-int ft_putnbr(long n)
+int ft_putnbr(long nb)
 {
-    int length = 0;
-
-    if (n < 0) {
-        if (n == -2147483648) {
-            write(1, "-2147483648", 11);
-            return 11;
-        }
-        n = -n;
-        length += ft_putchar('-');
+    int count = 0;
+    if (nb < 0)
+    {
+        ft_putchar('-');
+        nb = -nb;
+        count++;
     }
-
-    if (n < 10) {
-        length += ft_putchar(n + '0');
-        return length;
+    if (nb < 10)
+    {
+        ft_putchar(nb + '0');
+        return count + 1;
     }
-
-    length += ft_putnbr(n / 10);
-    length += ft_putnbr(n % 10);
-
-    return length;
+    else
+    {
+        count += ft_putnbr(nb / 10);
+        count += ft_putchar(nb % 10 + '0');
+        return count;
+    }
 }
+
