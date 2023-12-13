@@ -46,8 +46,3 @@ int ft_printf(const char *format, ...)
     return count;
 }
 
-// int main()
-// {
-//     printf("\n%d\n", ft_printf("%u", 0));
-//     printf("\n%d\n", printf("%u", 0));
-// }
