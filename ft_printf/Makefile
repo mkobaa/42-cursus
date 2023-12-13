@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-SRC = other_funcs.c	some_funcs.c
+SRC = other_funcs.c	some_funcs.c	ft_printf.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
