@@ -6,59 +6,95 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 09:17:20 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/01/06 19:59:12 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/01/10 19:39:49 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *get_next_line(int fd)
+char *find_full_buffer(int fd)
 {
-    static char *rest;
-    char *ptr;
-    char *str;
-    char *buffer;
+    char    *str;
+    char    *tmp;
+    char    *ptr;
+    int      ret;
+
+    str = ft_strdup("");
+    ptr = malloc(BUFFER_SIZE + 1);
+    if (!ptr)
+        return (NULL);
+    while ((ret = read(fd, ptr, BUFFER_SIZE)) > 0)
+    {
+        ptr[ret] = '\0';
+        tmp = ft_strjoin(str, ptr);
+        free(str);
+        str = tmp;
+        if (ft_strchr(str, '\n') || ret < BUFFER_SIZE)
+            break;
+    }
+    free(ptr);
+    if (ret <= 0)
+    {
+        free(str);
+        return(NULL);
+    }
+    return (str);
+}
+
+char *find_line(char *buffer)
+{
     char *line;
     int i;
-    int j;
-    int k;
-    ptr = malloc(BUFFER_SIZE);
-    str = malloc(0);
+
+    if (!buffer)
+        return (NULL);
     i = 0;
-    j = 0;
-    k = 0;
-    rest = NULL;
-    read(fd, ptr, BUFFER_SIZE);
-    while (ft_strchr(str, '\n') != 1)
-    {
-        str = ft_strjoin(str, ptr);
-        if (ft_strchr(str, '\n'))
-            break;
-        read(fd, ptr, BUFFER_SIZE);
-    }
-    while (str[i] && str[i] != '\n')
+    while(buffer[i] && buffer[i] != '\n')
         i++;
-    buffer = malloc(i + 1);
-    while (rest[j])
+    line = malloc(i + 1);
+    if (line)
     {
-        buffer[j] = rest[j];
-        j++;
+        ft_memcpy(line, buffer, i);
+        line[i] = '\n';
     }
-    while (str[k] && str[k] != '\n')
-    {
-        buffer[j] = str[k];
-        j++;
-    }
-    buffer[i] = '\n';
-    j = 0;
-    return (buffer);
-    rest = &str[i];
+    return (line);
 }
 
-int main()
+char    *find_rest(char *buffer)
 {
-    int fd = open("text.txt", O_RDONLY);
-    printf("%s",get_next_line(fd));
-    printf("%s",get_next_line(fd));
+    char *rest;
+    int i;
 
+    i = 0;
+    while (buffer[i] != '\n')
+    {
+        i++;
+    }
+    rest = ft_strdup(&buffer[i + 1]);
+    return (rest);
 }
+
+char *get_next_line(int fd)
+{
+    char *line;
+    static char *rest;
+    char *buffer;
+    line = 0;
+    line = ft_strjoin(line, rest);
+    buffer = find_full_buffer(fd);
+    line = ft_strjoin(line, find_line(buffer));
+    rest = find_rest(buffer);
+    return (line);
+}
+
+
+// int main()
+// {
+//     int fd = open("text.txt", O_RDONLY);
+//     printf("%s",get_next_line(fd));
+//     printf("%s",get_next_line(fd));
+//     printf("%s",get_next_line(fd));
+//     printf("%s",get_next_line(fd));
+//     printf("%s",get_next_line(fd));
+//     printf("%s",get_next_line(fd));
+// }
