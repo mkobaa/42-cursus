@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 10:18:15 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/12/19 20:48:41 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/09 21:11:53 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static int	ft_printf_helper(char specifier, va_list args)
 		return (ft_putptr(va_arg(args, void *)));
 	else if (specifier == '%')
 		return (ft_putchar('%'));
+	else
+		return (ft_putchar(specifier));
 	return (0);
 }
 

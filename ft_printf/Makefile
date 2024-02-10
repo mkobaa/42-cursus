@@ -6,14 +6,14 @@
 #    By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 10:26:22 by mkobaa            #+#    #+#              #
-#    Updated: 2023/12/19 10:26:24 by mkobaa           ###   ########.fr        #
+#    Updated: 2024/02/10 01:42:52 by mkobaa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-SRC = other_funcs.c	some_funcs.c	ft_printf.c
+SRC = s_utils.c	utils.c	ft_printf.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
