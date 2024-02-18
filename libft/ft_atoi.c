@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:47:10 by mkobaa            #+#    #+#             */
-/*   Updated: 2023/11/29 20:34:00 by mkobaa           ###   ########.fr       */
+/*   Updated: 2023/12/04 18:24:06 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	skip_spaces(const char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\n' 
+	while (str[i] == ' ' || str[i] == '\n'
 		|| str[i] == '\t' || str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
 		i++;
 	return (i);
