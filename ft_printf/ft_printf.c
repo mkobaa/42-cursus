@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 10:18:15 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/02/09 21:11:53 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/12 15:11:51 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
+			if (format[i] == '%' && format[i + 1] == '\0')
+				break ;
 			ft_putchar(format[i++]);
 			count++;
 		}
 	}
-	va_end(args);
-	return (count);
+	return (va_end(args), count);
 }
