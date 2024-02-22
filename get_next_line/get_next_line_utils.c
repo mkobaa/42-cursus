@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:36:03 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/02/21 17:34:29 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/22 18:43:25 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	if (s1 == 0 || s2 == 0)
-		return (NULL);
+	if (s1 == 0)
+		return ((char *)s2);
+	if (s2 == 0)
+		return ((char *)s1);
 	ptr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!ptr)
 		return (NULL);

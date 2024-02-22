@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/02/21 20:23:21 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/22 18:42:48 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ char *find_full_buffer(int fd)
 	int		ret;
 
 	buffer = ft_strdup("");
-	tmp = malloc(BUFFER_SIZE); // + 1
+	tmp = malloc(BUFFER_SIZE + 1); // + 1
 	if (!tmp)
 		return (NULL);
 	while (ft_strchr(tmp, '\n') == 0)
 	{
 		ret = read(fd, tmp, BUFFER_SIZE);
+		tmp[ret] = '\0';
 		if (ret <= 0)
 			break;
 		buffer = ft_strjoin(buffer , tmp);
@@ -66,9 +67,11 @@ char	*find_rest(char *buffer)
 	i = 0;
 	j = 0;
 	while (buffer[i] && buffer[i] !=  '\n')
-	{
 		i++;
-	}
+	rest = malloc(ft_strlen(buffer) - i);
+	// if(!rest
+		// to _do
+	i++;
 	while(buffer[i])
 	{
 		rest[j] = buffer[i];
@@ -78,20 +81,25 @@ char	*find_rest(char *buffer)
 	rest[j] = '\0';
 	return (rest);
 }
-// char get_next_line(int fd)
-// {
-// 	static char	rest;
-	
-// 	rest = find_rest(fd);
-	
-// }
+char *get_next_line(int fd)
+{
+	static char	*rest;
+	char		*buffer;
+	char		*line;
+	char		*line_to_return;
+
+	// printf("rest is %s\n",rest);
+	buffer = find_full_buffer(fd);
+	line = find_line(buffer);
+	line_to_return = ft_strjoin(rest, line);
+	rest = find_rest(buffer);
+	return line_to_return;
+}
 
 int main()
 {
 	int fd = open("test.txt", O_RDONLY);
-	printf("%s", find_full_buffer(fd));
-	printf("%s", find_full_buffer(fd));
-	printf("%s", find_full_buffer(fd));
-	printf("%s", find_full_buffer(fd));
-
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	// get_next_line(fd);
 }
