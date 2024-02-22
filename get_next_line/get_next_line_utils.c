@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:36:03 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/02/06 11:01:58 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/21 17:34:29 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,7 @@ char	*ft_strdup(const char *s1)
 	ptr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	i = 0;
 	if (!ptr)
-	{
 		return (NULL);
-	}
 	while (s1[i] != 0)
 	{
 		ptr[i] = s1[i];
