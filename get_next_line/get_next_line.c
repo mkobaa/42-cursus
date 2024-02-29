@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/02/29 16:42:35 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/29 08:58:11 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*find_full_buffer(int fd)
 	int		ret;
 
 	buffer = ft_calloc(1, 1);
+	if (!buffer)
+		return (NULL);
 	tmp = malloc(BUFFER_SIZE + 1);
 	if (!tmp)
-		return (NULL);
+		return (free(buffer), NULL);
 	while (ft_strchr(tmp, '\n', BUFFER_SIZE) == 0)
 	{
 		ret = read(fd, tmp, BUFFER_SIZE);
@@ -83,6 +85,11 @@ char	*find_rest(char *buffer)
 	return (rest);
 }
 
+char	*check_rest(char *buffer)
+{
+	
+}
+
 char	*get_next_line(int fd)
 {
     char		*buffer;
@@ -101,8 +108,7 @@ char	*get_next_line(int fd)
 		if (ft_strchr(rest, '\n', BUFFER_SIZE))
 		{
 			line = find_line(rest);
-			while (rest[i] != 0)
-				
+			rest = find_rest(rest);
 		}
 		else
 		{
@@ -110,7 +116,7 @@ char	*get_next_line(int fd)
 			rest = find_rest(buffer);
 		}
 	}
-	if (buffer[0] == 0)
-		return NULL;
-	return (rest);
+	if (buffer[0] == 0 && rest == NULL)
+		return (NULL);
+	return (line);
 }
