@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:26:24 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/02/22 18:22:46 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/02/29 16:35:17 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#define BUFFER_SIZE 3
+#  define BUFFER_SIZE 80
 
 # endif
 
@@ -23,9 +23,13 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-char	*ft_strjoin(char const *s1, char const *s2);
-int		ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
+char	*get_next_line(int fd);
+char    *find_full_buffer(int fd);
+char    *find_line(char *buffer);
+char    *find_rest(char *buffer);
+char	*ft_strjoin(char *s1, char *s2);
+int     ft_strchr(const char *s, int c, size_t size);
+void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(const char *s);
 
 #endif
