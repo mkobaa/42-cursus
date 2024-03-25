@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 05:56:36 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 01:06:13 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/25 07:23:58 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ int main()
     atexit(ff);
     char *line;
 
-    int fd = open("test.txt", O_RDONLY);
+    int fd = open("tehst.txt", O_RDONLY);
     line = get_next_line(fd);
+    
     printf("%s", line);
     free(line); 
     //////////////////////////////
-    line = get_next_line(fd);
-    printf("%s", line);
-    free(line);
-    //////////////////////////////
+    // line = get_next_line(fd);
+    // printf("%s", line);
+    // free(line);
+    // ////////////////////////////
     // line = get_next_line(fd);
     // printf("%s", line);
     // free(line);

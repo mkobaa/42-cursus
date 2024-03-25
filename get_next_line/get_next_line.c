@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 01:23:22 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/25 07:40:48 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,9 @@ char	*find_rest(char *buffer)
 	i++;
 	while (buffer[i])
 		rest[j++] = buffer[i++];
-	rest[j] = '\0';
-	free(buffer);
+	rest[j] = '\0'; 
+	if (buffer)
+		(free(buffer), buffer = NULL);
 	return (rest);
 }
 
@@ -129,12 +130,21 @@ char	*get_next_line(int fd)
 	{
 		buffer = find_full_buffer(fd);
 		line = find_line(buffer);
-		rest = find_rest(buffer);
+		if (BUFFER_SIZE == 1)
+		{
+			if (rest)
+				(free(rest), rest = NULL);
+			if (buffer)
+				(free(buffer), buffer = NULL);
+		}
+		else
+			rest = find_rest(buffer);
 	}
 	else
 		get_next_line2(&line, &rest, &buffer, fd);
-	if (buffer)
-		(buffer = NULL);
+	// printf("rest-----> %p\n", rest);
+	// printf("line-----> %p\n", line);
+	// printf("buffer-----> %p\n", buffer);
 	// printf("rst------> %p", rest);
 	// printf("rst_len------> %zu", ft_strlen(rest));
 	return (line);
