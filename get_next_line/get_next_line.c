@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 07:40:48 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/25 11:47:38 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,19 @@ char	*find_full_buffer(int fd)
 	(1) && (*buffer = 0, ret = 1);
 	tmp = malloc((size_t)BUFFER_SIZE + 1);
 	if (!tmp)
-		return (free(buffer), NULL);
+		return (free(buffer), buffer = NULL, NULL);
 	while (ret > 0)
 	{
 		ret = read(fd, tmp, BUFFER_SIZE);
 		if (ret < 0)
-			return(free(buffer), NULL);
+			return(free(buffer), buffer = NULL, NULL);
 		tmp[ret] = '\0';
 		buffer = ft_strjoin(buffer, tmp);
 		if (ft_strchr(tmp, '\n'))
 			break ;
 	}
-	(free(tmp), tmp = NULL);
+	if (tmp)
+		(free(tmp), tmp = NULL);
 	if (ret <= 0 && !*buffer)
 		return (free(buffer), buffer = NULL, NULL);
 	return (buffer);
@@ -130,7 +131,7 @@ char	*get_next_line(int fd)
 	{
 		buffer = find_full_buffer(fd);
 		line = find_line(buffer);
-		if (BUFFER_SIZE == 1)
+		if (BUFFER_SIZE == 1 || !ft_strchr(buffer, '\n'))
 		{
 			if (rest)
 				(free(rest), rest = NULL);

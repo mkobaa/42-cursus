@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:26:24 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 05:35:44 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/25 09:16:34 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10000000
+#  define BUFFER_SIZE 10
 
 # endif
 
