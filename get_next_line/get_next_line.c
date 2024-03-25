@@ -6,12 +6,24 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 11:47:38 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/25 14:18:57 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+char 	*find_full_buffer_helper(char **tmp, char **buffer, int ret)
+{
+	(free(*tmp), *tmp = NULL);
+	if (buffer)
+	{
+		if (ret <= 0 && !**buffer)
+			return (free(*buffer), *buffer = NULL, NULL);
+	}
+	else
+		return NULL;
+	return 0;
+}
 char	*find_full_buffer(int fd)
 {
 	char	*tmp;
@@ -24,22 +36,26 @@ char	*find_full_buffer(int fd)
 	(1) && (*buffer = 0, ret = 1);
 	tmp = malloc((size_t)BUFFER_SIZE + 1);
 	if (!tmp)
-		return (free(buffer), buffer = NULL, NULL);
+		return (free(buffer), NULL);
 	while (ret > 0)
 	{
 		ret = read(fd, tmp, BUFFER_SIZE);
 		if (ret < 0)
-			return(free(buffer), buffer = NULL, NULL);
+			return(free(buffer), NULL);
 		tmp[ret] = '\0';
-		buffer = ft_strjoin(buffer, tmp);
+		char *new_buffer = ft_strjoin(buffer, tmp);
+		if (!new_buffer)
+		{
+			free(buffer);
+			free(tmp);
+			return NULL;
+		}
+		buffer = new_buffer;
 		if (ft_strchr(tmp, '\n'))
 			break ;
 	}
-	if (tmp)
-		(free(tmp), tmp = NULL);
-	if (ret <= 0 && !*buffer)
-		return (free(buffer), buffer = NULL, NULL);
-	return (buffer);
+	find_full_buffer_helper(&tmp, &buffer, ret);
+	return (&*buffer);
 }
 
 char	*find_line(char *buffer)
@@ -54,8 +70,9 @@ char	*find_line(char *buffer)
 		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	if (buffer[i] == '\n')
-		i++;
+	if (buffer)
+		if (buffer[i] == '\n')
+			i++;
 	line = malloc(i + 1);
 	if (!line)
 		return (NULL);
@@ -66,7 +83,7 @@ char	*find_line(char *buffer)
 	}
 	if (buffer[i] == '\n')
 		line[j] = '\n';
-	line[j] = '\0';
+	line[j++] = '\0';
 	return (line);
 }
 
@@ -133,8 +150,6 @@ char	*get_next_line(int fd)
 		line = find_line(buffer);
 		if (BUFFER_SIZE == 1 || !ft_strchr(buffer, '\n'))
 		{
-			if (rest)
-				(free(rest), rest = NULL);
 			if (buffer)
 				(free(buffer), buffer = NULL);
 		}
@@ -143,10 +158,5 @@ char	*get_next_line(int fd)
 	}
 	else
 		get_next_line2(&line, &rest, &buffer, fd);
-	// printf("rest-----> %p\n", rest);
-	// printf("line-----> %p\n", line);
-	// printf("buffer-----> %p\n", buffer);
-	// printf("rst------> %p", rest);
-	// printf("rst_len------> %zu", ft_strlen(rest));
 	return (line);
 }
