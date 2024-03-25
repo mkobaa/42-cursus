@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/13 00:30:00 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/25 01:23:22 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,24 @@ char	*find_full_buffer(int fd)
 	char	*buffer;
 	int		ret;
 
-	buffer = ft_calloc(1, 1);
+	buffer = malloc(1);
 	if (!buffer)
 		return (NULL);
+	(1) && (*buffer = 0, ret = 1);
 	tmp = malloc((size_t)BUFFER_SIZE + 1);
 	if (!tmp)
+		return (free(buffer), NULL);
+	while (ret > 0)
 	{
-		return (free(buffer), buffer = NULL, NULL);
-	}
-	while ((ret = read(fd, tmp, BUFFER_SIZE)) > 0)
-	{
+		ret = read(fd, tmp, BUFFER_SIZE);
+		if (ret < 0)
+			return(free(buffer), NULL);
 		tmp[ret] = '\0';
 		buffer = ft_strjoin(buffer, tmp);
 		if (ft_strchr(tmp, '\n'))
 			break ;
 	}
-	free(tmp);
-	tmp = NULL;
+	(free(tmp), tmp = NULL);
 	if (ret <= 0 && !*buffer)
 		return (free(buffer), buffer = NULL, NULL);
 	return (buffer);
@@ -82,18 +83,39 @@ char	*find_rest(char *buffer)
 		i++;
 	rest = malloc(ft_strlen(buffer) - i);
 	if (!rest)
-		return (NULL);
+		return (free(buffer), buffer = NULL, NULL);
 	i++;
 	while (buffer[i])
-	{
-		rest[j] = buffer[i];
-		j++;
-		i++;
-	}
+		rest[j++] = buffer[i++];
 	rest[j] = '\0';
+	free(buffer);
 	return (rest);
 }
 
+void	get_next_line2(char **line, char **rest, char **buffer, int fd)
+{
+	*buffer = NULL;
+	if (*rest[0] == '\0')
+	{
+		*line = find_line(*buffer);
+		if (*rest)
+		{
+			free(*rest);
+			*rest = NULL;
+		}
+	}
+	if (ft_strchr(*rest, '\n'))
+	{
+		*line = find_line(*rest);
+		*rest = find_rest(*rest);
+	}
+	else
+	{
+		*buffer = find_full_buffer(fd);
+		*line = ft_strjoin2(*rest, find_line(*buffer));
+		*rest = find_rest(*buffer);
+	}
+}
 
 char	*get_next_line(int fd)
 {
@@ -101,7 +123,8 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*rest;
 	
-	
+	if (fd < 0 || fd > OPEN_MAX || read(fd, 0, 0) < 0)
+		return (free(rest), rest = NULL, NULL);
 	if (!rest)
 	{
 		buffer = find_full_buffer(fd);
@@ -109,35 +132,10 @@ char	*get_next_line(int fd)
 		rest = find_rest(buffer);
 	}
 	else
-	{
-		buffer = NULL;
-		if (rest[0] == '\0')
-		{
-			line = find_line(buffer);
-			if (rest)
-			{
-				free(rest);
-				rest = NULL;
-			}
-		}
-		if (ft_strchr(rest, '\n'))
-		{
-			line = find_line(rest);
-			rest = find_rest(rest);
-		}
-		else
-		{
-			buffer = find_full_buffer(fd);
-			line = ft_strjoin(rest, find_line(buffer));
-			rest = find_rest(buffer);
-		}
-	
-	}
+		get_next_line2(&line, &rest, &buffer, fd);
 	if (buffer)
-	{
-		free(buffer);
-		buffer = NULL;
-	}
-
+		(buffer = NULL);
+	// printf("rst------> %p", rest);
+	// printf("rst_len------> %zu", ft_strlen(rest));
 	return (line);
 }
