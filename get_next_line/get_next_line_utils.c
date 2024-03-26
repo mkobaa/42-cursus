@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:36:03 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 14:08:36 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/26 16:49:19 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ char	*ft_strjoin2(char *s1, char *s2)
 	while (s2[j] != 0)
 		ptr[i++] = s2[j++];
 	ptr[i] = 0;
-	// printf("%p ---- %p\n", s1, s2);
 	return (free(s1), free(s2), ptr);
 }
 
@@ -93,4 +92,29 @@ int	ft_strchr(const char *s, int c)
 	if (s[i] == (char)c)
 		return (1);
 	return (0);
+}
+
+char	*find_rest(char *buffer)
+{
+	int		i;
+	int		j;
+	char	*rest;
+
+	if (!buffer)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (!buffer[i])
+		return (free(buffer), NULL);
+	rest = malloc(ft_strlen(buffer) - i + 1);
+	if (!rest)
+		return (free(buffer), NULL);
+	i++;
+	while (buffer[i])
+		rest[j++] = buffer[i++];
+	rest[j] = '\0';
+	free(buffer);
+	return (rest);
 }

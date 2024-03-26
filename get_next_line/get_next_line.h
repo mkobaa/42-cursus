@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:26:24 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 14:20:41 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/26 16:45:06 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000000
+#  define BUFFER_SIZE 10
 
 # endif
 
@@ -27,6 +27,7 @@
 void	get_next_line2(char **line, char **rest, char **buffer, int fd);
 char	*get_next_line(int fd);
 char	*find_full_buffer(int fd);
+void	find_full_buffer_helper(char **tmp, char **buffer, int ret);
 char	*find_line(char *buffer);
 char	*find_rest(char *buffer);
 char	*ft_strjoin(char *s1, char *s2);

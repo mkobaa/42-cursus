@@ -6,28 +6,24 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/25 14:18:57 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/26 16:48:57 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char 	*find_full_buffer_helper(char **tmp, char **buffer, int ret)
+void	find_full_buffer_helper(char **tmp, char **buffer, int ret)
 {
 	(free(*tmp), *tmp = NULL);
-	if (buffer)
-	{
-		if (ret <= 0 && !**buffer)
-			return (free(*buffer), *buffer = NULL, NULL);
-	}
-	else
-		return NULL;
-	return 0;
+	if (ret <= 0 && !**buffer)
+		(free(*buffer), *buffer = NULL);
 }
+
 char	*find_full_buffer(int fd)
 {
 	char	*tmp;
 	char	*buffer;
+	char	*new_buffer;
 	int		ret;
 
 	buffer = malloc(1);
@@ -36,26 +32,20 @@ char	*find_full_buffer(int fd)
 	(1) && (*buffer = 0, ret = 1);
 	tmp = malloc((size_t)BUFFER_SIZE + 1);
 	if (!tmp)
-		return (free(buffer), NULL);
+		return (free(buffer), buffer = NULL, NULL);
 	while (ret > 0)
 	{
 		ret = read(fd, tmp, BUFFER_SIZE);
-		if (ret < 0)
-			return(free(buffer), NULL);
 		tmp[ret] = '\0';
-		char *new_buffer = ft_strjoin(buffer, tmp);
+		new_buffer = ft_strjoin(buffer, tmp);
 		if (!new_buffer)
-		{
-			free(buffer);
-			free(tmp);
-			return NULL;
-		}
+			return (free(buffer), free(tmp), NULL);
 		buffer = new_buffer;
 		if (ft_strchr(tmp, '\n'))
 			break ;
 	}
 	find_full_buffer_helper(&tmp, &buffer, ret);
-	return (&*buffer);
+	return (buffer);
 }
 
 char	*find_line(char *buffer)
@@ -87,30 +77,6 @@ char	*find_line(char *buffer)
 	return (line);
 }
 
-char	*find_rest(char *buffer)
-{
-	int		i;
-	int		j;
-	char	*rest;
-
-	if (!buffer)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (buffer[i] && buffer[i] != '\n')
-		i++;
-	rest = malloc(ft_strlen(buffer) - i);
-	if (!rest)
-		return (free(buffer), buffer = NULL, NULL);
-	i++;
-	while (buffer[i])
-		rest[j++] = buffer[i++];
-	rest[j] = '\0'; 
-	if (buffer)
-		(free(buffer), buffer = NULL);
-	return (rest);
-}
-
 void	get_next_line2(char **line, char **rest, char **buffer, int fd)
 {
 	*buffer = NULL;
@@ -118,10 +84,7 @@ void	get_next_line2(char **line, char **rest, char **buffer, int fd)
 	{
 		*line = find_line(*buffer);
 		if (*rest)
-		{
-			free(*rest);
-			*rest = NULL;
-		}
+			(free(*rest), *rest = NULL);
 	}
 	if (ft_strchr(*rest, '\n'))
 	{
@@ -141,13 +104,15 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*line;
 	static char	*rest;
-	
+
 	if (fd < 0 || fd > OPEN_MAX || read(fd, 0, 0) < 0)
 		return (free(rest), rest = NULL, NULL);
 	if (!rest)
 	{
 		buffer = find_full_buffer(fd);
 		line = find_line(buffer);
+		if (!line)
+			return (free(buffer), buffer = NULL, NULL);
 		if (BUFFER_SIZE == 1 || !ft_strchr(buffer, '\n'))
 		{
 			if (buffer)
@@ -158,5 +123,7 @@ char	*get_next_line(int fd)
 	}
 	else
 		get_next_line2(&line, &rest, &buffer, fd);
+	if (!line)
+		return (free(line), free(rest), rest = NULL, line = NULL, NULL);
 	return (line);
 }

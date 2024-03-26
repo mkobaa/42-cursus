@@ -1,0 +1,319 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                Welcome to Francinette, a 42 tester framework!                ║
+╚═══════════════════════╦══════════════════════════════╦═══════════════════════╝
+                        ║         get_next_line        ║
+                        ╚══════════════════════════════╝
+⠋ Preparing framework⠙ Preparing framework✔ Preparing framework
+⠋ Executing: norminette⠙ Executing: norminette⠹ Executing: norminette⠸ Executing: norminette✖ Executing: norminette
+get_next_line.c: Error!
+Error: MIXED_SPACE_TAB      (line:  15, col:   5):	Mixed spaces and tabs
+Error: RETURN_PARENTHESIS   (line:  24, col:  16):	Return value must be in parenthesis
+Error: RETURN_PARENTHESIS   (line:  25, col:  12):	Return value must be in parenthesis
+Error: NEWLINE_PRECEDES_FUNC (line:  27, col:   1):	Functions must be separated by a newline
+Error: TOO_FEW_TAB          (line:  87, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  87, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  88, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  88, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  89, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  89, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  91, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  91, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  92, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  92, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  93, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  93, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  94, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  94, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  95, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  95, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  96, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  96, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  97, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  97, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  98, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  98, col:   9):	Found space when expecting tab
+Error: SPC_BEFORE_NL        (line:  98, col:  37):	Space before newline
+Error: TOO_FEW_TAB          (line:  99, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  99, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 100, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 100, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 101, col:   1):	Missing tabs for indent level
+Error: SPACE_AFTER_KW       (line: 101, col:   9):	Missing space after keyword
+Error: SPACE_REPLACE_TAB    (line: 101, col:   9):	Found space when expecting tab
+Error: SPC_BFR_PAR          (line: 101, col:  15):	Missing space before parenthesis (brace/bracket)
+Error: TOO_FEW_TAB          (line: 102, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 102, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 103, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 103, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 104, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 104, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 105, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 105, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 106, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 106, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line: 107, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line: 107, col:   5):	Found space when expecting tab
+Error: TOO_MANY_FUNCS       (line: 134, col:   1):	Too many functions in file
+Error: SPACE_EMPTY_LINE     (line: 139, col:   1):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line: 145, col:   9):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 146, col:   9):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 147, col:   9):	Comment is invalid in this scope
+Error: WRONG_SCOPE_COMMENT  (line: 148, col:   9):	Comment is invalid in this scope
+Error: EMPTY_LINE_FUNCTION  (line: 149, col:   1):	Empty line in function
+Error: SPACE_EMPTY_LINE     (line: 149, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line: 166, col:   1):	Function has more than 25 lines
+get_next_line.h: OK!
+get_next_line_utils.c: OK!
+main.c: Error!
+Error: CONSECUTIVE_SPC      (line:  15, col:   5):	Two or more consecutives spaces
+Error: SPACE_BEFORE_FUNC    (line:  15, col:   8):	space before function name
+Error: NO_ARGS_VOID         (line:  15, col:  12):	Empty function argument requires void
+Error: TOO_FEW_TAB          (line:  17, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  17, col:   5):	Found space when expecting tab
+Error: NEWLINE_PRECEDES_FUNC (line:  19, col:   1):	Functions must be separated by a newline
+Error: SPACE_BEFORE_FUNC    (line:  19, col:   4):	space before function name
+Error: NO_ARGS_VOID         (line:  19, col:  10):	Empty function argument requires void
+Error: SPACE_EMPTY_LINE     (line:  21, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  21, col:   5):	Comment is invalid in this scope
+Error: TOO_FEW_TAB          (line:  22, col:   1):	Missing tabs for indent level
+Error: VAR_DECL_START_FUNC  (line:  22, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  22, col:   5):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  22, col:   9):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  24, col:   1):	Missing tabs for indent level
+Error: VAR_DECL_START_FUNC  (line:  24, col:   1):	Variable declaration not at start of function
+Error: SPACE_REPLACE_TAB    (line:  24, col:   5):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  24, col:   8):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  24, col:   9):	Misaligned variable declaration
+Error: DECL_ASSIGN_LINE     (line:  24, col:  12):	Declaration and assignation on a single line
+Error: TOO_FEW_TAB          (line:  25, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  25, col:   5):	Found space when expecting tab
+Error: CONSECUTIVE_SPC      (line:  25, col:  30):	Two or more consecutives spaces
+Error: SPC_BEFORE_NL        (line:  25, col:  30):	Space before newline
+Error: TOO_FEW_TAB          (line:  26, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  26, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  27, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  27, col:   5):	Found space when expecting tab
+Error: SPC_BEFORE_NL        (line:  27, col:  16):	Space before newline
+Error: SPACE_EMPTY_LINE     (line:  28, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  28, col:   5):	Comment is invalid in this scope
+Error: TOO_FEW_TAB          (line:  29, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  29, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  30, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  30, col:   5):	Found space when expecting tab
+Error: TOO_FEW_TAB          (line:  31, col:   1):	Missing tabs for indent level
+Error: SPACE_REPLACE_TAB    (line:  31, col:   5):	Found space when expecting tab
+Error: SPACE_EMPTY_LINE     (line:  32, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  32, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  33, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  33, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  34, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  34, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  35, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  35, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  36, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  36, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  37, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  37, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  38, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  38, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  39, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  39, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  40, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  40, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  41, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  41, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  42, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  42, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  43, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  43, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  44, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  44, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  45, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  45, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  46, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  46, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  47, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  47, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  48, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  48, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  49, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  49, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  50, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  50, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  51, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  51, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  52, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  52, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  53, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  53, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  54, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  54, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  55, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  55, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  56, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  56, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  57, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  57, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  58, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  58, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  59, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  59, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  60, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  60, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  61, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  61, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  62, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  62, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  63, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  63, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  64, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  64, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  65, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  65, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  66, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  66, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  67, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  67, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  68, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  68, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  69, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  69, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  70, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  70, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  71, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  71, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  72, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  72, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  73, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  73, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  74, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  74, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  75, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  75, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  76, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  76, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  77, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  77, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  78, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  78, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  79, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  79, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  80, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  80, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  81, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  81, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  82, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  82, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  83, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  83, col:   5):	Comment is invalid in this scope
+Error: SPACE_EMPTY_LINE     (line:  84, col:   5):	Space on empty line
+Error: WRONG_SCOPE_COMMENT  (line:  84, col:   5):	Comment is invalid in this scope
+Error: TOO_MANY_LINES       (line:  85, col:   1):	Function has more than 25 lines
+
+ℹ Running tests: fsoares (my own tests)
+[1;35mBUFFER_SIZE[0m: 1
+[0;34mInvalid fd          [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m[0;32m5_NULL_CHECK.OK [0m
+[0;34mempty.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34m1char.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34mone_line_no_nl.txt  [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34monly_nl.txt         [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34mmultiple_nl.txt     [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;32m8_NULL_CHECK.OK [0m
+[0;34mvariable_nls.txt    [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7.OK [0m[0;32m8.OK [0m[0;32m9.OK [0m[0;32m10.OK [0m[0;32m11.OK [0m[0;32m12.OK [0m[0;32m13.OK [0m[0;32m14_LEAKS.OK [0m[0;32m15_NULL_CHECK.OK [0m
+[0;34mlines_around_10.txt [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;32m8_NULL_CHECK.OK [0m
+[0;34mread_error.txt      [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7.OK [0m[0;32m8.OK [0m[0;32m9_LEAKS.OK [0m[0;32m10_NULL_CHECK.OK [0m
+[0;34mstdin               [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;32m8_NULL_CHECK.OK [0m
+
+[1;35mBUFFER_SIZE[0m: 10
+[0;34mInvalid fd          [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m[0;32m5_NULL_CHECK.OK [0m
+[0;34mempty.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34m1char.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34mone_line_no_nl.txt  [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34monly_nl.txt         [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;31m4_NULL_CHECK.KO [0m
+[0;34mmultiple_nl.txt     [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;31m8_NULL_CHECK.KO [0m
+[0;34mvariable_nls.txt    [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7.OK [0m[0;32m8.OK [0m[0;32m9.OK [0m[0;32m10.OK [0m[0;32m11.OK [0m[0;32m12.OK [0m[0;32m13.OK [0m[0;32m14_LEAKS.OK [0m[0;31m15_NULL_CHECK.KO [0m
+[0;34mlines_around_10.txt [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;31m8_NULL_CHECK.KO [0m
+[0;34mgiant_line.txt      [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;33m4.KO Timeout
+[0m[0;34mgiant_line_nl.txt   [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m[0;33m5.KO Timeout
+[0m[0;34mread_error.txt      [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7.OK [0m[0;32m8.OK [0m[0;32m9_LEAKS.OK [0m[0;31m10_NULL_CHECK.KO [0m
+[0;34mlimits              [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;31m8_NULL_CHECK.KO [0m[0;32m9.OK [0m[0;32m10.OK [0m[0;32m11_LEAKS.OK [0m[0;32m12_NULL_CHECK.OK [0m[0;32m13.OK [0m[0;32m14.OK [0m[0;32m15_LEAKS.OK [0m[0;31m16_NULL_CHECK.KO [0m[0;32m17.OK [0m[0;32m18.OK [0m[0;32m19_LEAKS.OK [0m[0;32m20_NULL_CHECK.OK [0m[0;32m21.OK [0m[0;32m22.OK [0m[0;32m23_LEAKS.OK [0m[0;31m24_NULL_CHECK.KO [0m[0;32m25.OK [0m[0;32m26.OK [0m[0;32m27_LEAKS.OK [0m[0;32m28_NULL_CHECK.OK [0m[0;32m29.OK [0m[0;32m30.OK [0m[0;32m31_LEAKS.OK [0m[0;31m32_NULL_CHECK.KO [0m[0;32m33.OK [0m[0;32m34.OK [0m[0;32m35_LEAKS.OK [0m[0;32m36_NULL_CHECK.OK [0m[0;32m37.OK [0m[0;32m38.OK [0m[0;32m39_LEAKS.OK [0m[0;31m40_NULL_CHECK.KO [0m[0;32m41.OK [0m[0;32m42.OK [0m[0;32m43_LEAKS.OK [0m[0;32m44_NULL_CHECK.OK [0m[0;32m45.OK [0m[0;32m46.OK [0m[0;32m47_LEAKS.OK [0m[0;31m48_NULL_CHECK.KO [0m[0;32m49.OK [0m[0;32m50.OK [0m[0;32m51.OK [0m[0;32m52_LEAKS.OK [0m[0;31m53_NULL_CHECK.KO [0m[0;32m54.OK [0m[0;32m55.OK [0m[0;32m56.OK [0m[0;32m57_LEAKS.OK [0m[0;31m58_NULL_CHECK.KO [0m[0;32m59.OK [0m[0;32m60.OK [0m[0;32m61.OK [0m[0;32m62_LEAKS.OK [0m[0;31m63_NULL_CHECK.KO [0m[0;32m64.OK [0m[0;32m65.OK [0m[0;32m66.OK [0m[0;32m67_LEAKS.OK [0m[0;31m68_NULL_CHECK.KO [0m[0;32m69.OK [0m[0;31m70.KO [0m[0;32m71.OK [0m[0;32m72_LEAKS.OK [0m[0;31m73_NULL_CHECK.KO [0m[0;32m74.OK [0m[0;32m75.OK [0m[0;32m76.OK [0m[0;32m77_LEAKS.OK [0m[0;31m78_NULL_CHECK.KO [0m
+[0;34mstdin               [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;32m8_NULL_CHECK.OK [0m
+
+[1;35mBUFFER_SIZE[0m: 1000000
+[0;34mInvalid fd          [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m[0;32m5_NULL_CHECK.OK [0m
+[0;34mempty.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34m1char.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34mone_line_no_nl.txt  [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34monly_nl.txt         [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;31m4_NULL_CHECK.KO [0m
+[0;34mmultiple_nl.txt     [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;31m8_NULL_CHECK.KO [0m
+[0;34mvariable_nls.txt    [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7.OK [0m[0;32m8.OK [0m[0;32m9.OK [0m[0;32m10.OK [0m[0;32m11.OK [0m[0;31m12.KO [0m[0;32m13.OK [0m[0;32m14_LEAKS.OK [0m[0;31m15_NULL_CHECK.KO [0m
+[0;34mlines_around_10.txt [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;31m8_NULL_CHECK.KO [0m
+[0;34mgiant_line.txt      [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m[0;32m4_NULL_CHECK.OK [0m
+[0;34mgiant_line_nl.txt   [0m: [0;32m1.OK [0m[0;31m2.KO [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m[0;31m5_NULL_CHECK.KO [0m
+[0;34mread_error.txt      [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7.OK [0m[0;32m8.OK [0m[0;32m9_LEAKS.OK [0m[0;31m10_NULL_CHECK.KO [0m
+[0;34mstdin               [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4.OK [0m[0;32m5.OK [0m[0;32m6.OK [0m[0;32m7_LEAKS.OK [0m[0;32m8_NULL_CHECK.OK [0m
+
+⠋ Processing output⠙ Processing output⠹ Processing output⠸ Processing output⠼ Processing output⠴ Processing output⠦ Processing outputErrors found:
+Error in test 4: get_next_line(5: "only_nl.txt"):
+malloc protection check for 4th malloc:
+     in _add_malloc malloc_mock.c:29:8
+     in malloc malloc_mock.c:75:10
+  -> in find_line get_next_line.c:71:7
+     in get_next_line get_next_line.c:150:10
+     in null_check_gnl file_utils.c:116:7
+     in main tester.c:129:2
+: 
+Memory leak: 0x602000000450 - 2 bytes
+You failed to free the memory allocated at:
+     in _add_malloc malloc_mock.c:29:8
+     in malloc malloc_mock.c:75:10
+  -> in find_rest get_next_line.c:99:10
+     in get_next_line get_next_line.c:159:9
+     in null_check_gnl file_utils.c:138:8
+     in main tester.c:129:2
+
+Error in test 8: get_next_line(5: "multiple_nl.txt"):
+malloc protection check for 4th malloc:
+     in _add_malloc malloc_mock.c:29:8
+     in malloc malloc_mock.c:75:10
+  -> in find_line get_next_line.c:71:7
+     in get_next_line get_next_line.c:150:10
+     in null_check_gnl file_utils.c:116:7
+     in main tester.c:135:2
+: 
+Memory leak: 0x602000000650 - 6 bytes
+You failed to free the memory allocated at:
+     in _add_malloc malloc_mock.c:29:8
+     in malloc malloc_mock.c:75:10
+  -> in find_rest get_next_line.c:99:10
+     in get_next_line get_next_line.c:159:9
+     in null_check_gnl file_utils.c:138:8
+     in main tester.c:135:2
+
+Error in test 8: get_next_line(5: "multiple_nl.txt"):
+malloc protection check for 6th malloc:
+     in _add_malloc malloc_mock.c:29:8
+     in malloc malloc_mock.c:75:10
+  -> in find_line get_next_line.c:71:7
+     in get_next_line2 get_next_line.c:121:4
+     in get_next_line get_next_line.c
+     in null_check_gnl file_utils.c:116:7
+     in main tester.c:135:2
+: 
+Memory leak: 0x602000000830 - 5 bytes
+You failed to free the memory allocated at:
+     in _add_malloc malloc_mock.c:29:8
+     in malloc malloc_mock.c:75:10
+...
+
+File too large. To see full report open: 
+/Users/mkobaa/francinette/temp/get_next_line/fsoares/errors.log
+
+To see the tests open: /Users/mkobaa/francinette/tests/get_next_line/fsoares/tester.c
+
+
+Summary: no bonus
+
+Norminette Errors: get_next_line.c, main.c
+
+Failed tests: fsoares
+
