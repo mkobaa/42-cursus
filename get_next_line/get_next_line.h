@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:26:24 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/26 16:45:06 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/27 04:19:36 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1000000
 
 # endif
 
@@ -24,7 +24,7 @@
 # include <fcntl.h>
 # include <limits.h>
 
-void	get_next_line2(char **line, char **rest, char **buffer, int fd);
+char	*get_next_line2(char **rest, char **buffer, int fd);
 char	*get_next_line(int fd);
 char	*find_full_buffer(int fd);
 void	find_full_buffer_helper(char **tmp, char **buffer, int ret);

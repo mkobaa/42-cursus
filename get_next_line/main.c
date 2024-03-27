@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 05:56:36 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/26 13:45:44 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/27 04:26:35 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,59 +29,59 @@ int main()
     line = get_next_line(fd);
     printf("%s", line);
     free(line);
-    // ////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
+    ////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
     // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
     // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
     // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
     // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
     // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // //////////////////////////////
-    // line = get_next_line(fd);
-    // printf("%s", line);
-    // free(line);
-    // //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
+    line = get_next_line(fd);
+    printf("%s", line);
+    free(line);
+    //////////////////////////////
 }
 
 // // #include <stdio.h>

@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/26 16:48:57 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/27 04:48:04 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,26 +77,31 @@ char	*find_line(char *buffer)
 	return (line);
 }
 
-void	get_next_line2(char **line, char **rest, char **buffer, int fd)
+char	*get_next_line2(char **rest, char **buffer, int fd)
 {
+	char	*line;
+
 	*buffer = NULL;
 	if (*rest[0] == '\0')
 	{
-		*line = find_line(*buffer);
+		line = find_line(*buffer);
 		if (*rest)
 			(free(*rest), *rest = NULL);
 	}
 	if (ft_strchr(*rest, '\n'))
 	{
-		*line = find_line(*rest);
+		line = find_line(*rest);
 		*rest = find_rest(*rest);
 	}
 	else
 	{
 		*buffer = find_full_buffer(fd);
-		*line = ft_strjoin2(*rest, find_line(*buffer));
+		// if (!buffer)
+		// 	return (free(line), line = NULL, NULL); //recently added
+		line = ft_strjoin2(*rest, find_line(*buffer));
 		*rest = find_rest(*buffer);
 	}
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -122,7 +127,7 @@ char	*get_next_line(int fd)
 			rest = find_rest(buffer);
 	}
 	else
-		get_next_line2(&line, &rest, &buffer, fd);
+		line = get_next_line2(&rest, &buffer, fd);
 	if (!line)
 		return (free(line), free(rest), rest = NULL, line = NULL, NULL);
 	return (line);
