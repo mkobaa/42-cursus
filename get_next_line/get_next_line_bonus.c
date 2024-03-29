@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 10:30:33 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/03/29 15:10:25 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/03/29 15:13:03 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,27 +107,27 @@ char	*get_next_line(int fd)
 {
 	char		*buffer;
 	char		*line;
-	static char	*rest;
+	static char	*rest[OPEN_MAX];
 
 	if (fd < 0 || fd > OPEN_MAX || read(fd, 0, 0) < 0)
-		return (free(rest), rest = NULL, NULL);
-	if (!rest)
+		return (free(rest[fd]), rest[fd] = NULL, NULL);
+	if (!rest[fd])
 	{
 		buffer = find_full_buffer(fd);
 		line = find_line(buffer);
 		if (!line)
-			return (free(buffer), buffer = NULL, free(rest), rest = NULL, NULL);
+			return (free(buffer), buffer = NULL, free(rest[fd]), NULL);
 		if (BUFFER_SIZE == 1 || !ft_strchr(buffer, '\n'))
 		{
 			if (buffer)
 				(free(buffer), buffer = NULL);
 		}
 		else
-			rest = find_rest(buffer);
+			rest[fd] = find_rest(buffer);
 	}
 	else
-		line = get_next_line2(&rest, &buffer, fd);
+		line = get_next_line2(&rest[fd], &buffer, fd);
 	if (!line)
-		return (free(line), free(rest), rest = NULL, line = NULL, NULL);
+		return (free(line), free(rest[fd]), rest[fd] = NULL, line = NULL, NULL);
 	return (line);
 }
