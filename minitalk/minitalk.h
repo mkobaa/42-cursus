@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 00:12:14 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/07 02:42:11 by mkobaa           ###   ########.fr       */
+/*   Created: 2024/06/07 02:07:55 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/06/07 02:36:05 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-int get_pid()
-{
-	pid_t pid = getpid();
-	return (pid);
-}
+#ifndef MINITALK
+#define MINITALK
 
-int main() 
-{
-	int pid;
-	
-	pid = get_pid();
-	printf("The PID is : %d\n", pid);
-	while (1)
-	{
-		
-	}
-	return 0;
-}
+int get_pid();
+int	ft_atoi(const char *str);
+
+#endif

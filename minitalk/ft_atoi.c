@@ -37,39 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)(sign * rslt));
 }
-
-char ascii_to_binary(char *s)
-{
-	char *binary;
-	int i;
-	int l;
-	int j;
-	int k;
-
-	i = 0;
-	while (s[i])
-	{
-		j = s[i] / 2;
-		while (j != 0)
-		{
-			k = s[i] % 2;
-			binary[l] = k;
-
-		}
-		i++;
-	}
-
-	
-
-}
-
-int main(int argc, char *argv[])
-{
-	if (argc == 3 && ft_atoi(argv[1]))
-	{
-		int pid = ft_atoi(argv[1]);
-		printf("%d", 'A' % 2);
-	}
-	else
-		printf("%s", "please add the PID first then the text to send");
-}
