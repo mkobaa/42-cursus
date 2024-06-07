@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/08 00:05:58 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/06/08 00:07:02 by mkobaa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 static int	skip_spaces(const char *str)
@@ -38,37 +50,49 @@ int	ft_atoi(const char *str)
 	return ((int)(sign * rslt));
 }
 
-char ascii_to_binary(char *s)
+char	*ascii_to_binary(char s)
 {
-	char *binary;
-	int i;
-	int l;
-	int j;
-	int k;
+	static char	binary[9];
+	int			i;
 
-	i = 0;
-	while (s[i])
+	binary[8] = '\0';
+	i = 7;
+	while (i >= 0)
 	{
-		j = s[i] / 2;
-		while (j != 0)
-		{
-			k = s[i] % 2;
-			binary[l] = k;
-
-		}
-		i++;
+		if (s % 2)
+			binary[i] = '1';
+		else
+			binary[i] = '0';
+		s /= 2;
+		i--;
 	}
-
-	
-
+	return (binary);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	if (argc == 3 && ft_atoi(argv[1]))
+	int		i;
+	int		j;
+	int		pid;
+	char	*binary;
+
+	i = 0;
+	if (argc == 3 && ft_atoi(argv[1]) > 0)
 	{
-		int pid = ft_atoi(argv[1]);
-		printf("%d", 'A' % 2);
+		pid = ft_atoi(argv[1]);
+		while (argv[2][i])
+		{
+			binary = ascii_to_binary(argv[2][i]);
+			while (binary[j])
+			{
+				if (binary[j] == 0)
+					kill(pid, SIGUSR1);
+				else
+					kill(pid, SIGUSR2);
+				j++;
+			}
+			i++;
+		}
 	}
 	else
 		printf("%s", "please add the PID first then the text to send");

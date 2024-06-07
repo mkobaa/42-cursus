@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 02:07:55 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/07 02:36:05 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/06/07 23:59:15 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #ifndef MINITALK
 #define MINITALK
+
+#include <stdlib.h>
+#include <signal.h>
 
 int get_pid();
 int	ft_atoi(const char *str);
