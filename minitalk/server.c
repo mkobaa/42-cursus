@@ -1,14 +1,12 @@
-
-#include <stdio.h>
-#include <unistd.h>
-#include "minitalk.h"
-#include "ft_printf/ft_printf.h"
-
 #include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
 #include "minitalk.h"
 #include "ft_printf/ft_printf.h"
+
+static char str[9];
+static int i = 0;
+
 
 int zero_one(char s)
 {
@@ -57,11 +55,9 @@ int convert(char *s)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 void handler(int signum)
 {
-    static char str[9];
-    static int i = 0;
+
 
     if (signum == SIGUSR1 || signum == SIGUSR2)
     {
