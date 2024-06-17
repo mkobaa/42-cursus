@@ -4,33 +4,8 @@
 #include "minitalk.h"
 #include "ft_printf/ft_printf.h"
 
-static char str[9];
-static int i = 0;
 
 
-int zero_one(char s)
-{
-	if (s == '0')
-		return 0;
-	else
-		return 1;
-}
-
-int power(int i, int j)
-{
-    int result = 1;
-    while (j > 0)
-    {
-        result *= i;
-        j--;
-    }
-    return result;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
 int convert(char *s)
 {
     int i;
@@ -50,41 +25,46 @@ int convert(char *s)
     }
     return rslt;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
-void handler(int signum)
+void	handler(int signum, siginfo_t *info, void *context)  
 {
-
+    static char str[9];
+    static int i = 0;
+    static pid_t pid;
 
     if (signum == SIGUSR1 || signum == SIGUSR2)
     {
-        if (i == 8)
+        (void)context;
+        if (pid != info->si_pid)
         {
-            ft_printf("%c", convert(str));
             i = 0;
+            pid = info->si_pid;
         }
         if (signum == SIGUSR1) 
             str[i] = '0';
         else if (signum == SIGUSR2) 
             str[i] = '1';
         i++;
+        if (i == 8)
+        {
+            ft_printf("%c", convert(str));
+            i = 0;
+        }
     }
 }
 
 int main()
 {
+    int i;
+    struct sigaction	sa;
 
-	int pid = getpid();
-	ft_printf("The PID is : %d\n", pid);
-	signal(SIGUSR2, handler);
-	signal(SIGUSR1, handler);
+	sa.sa_sigaction = handler;
+	sa.sa_flags = SA_SIGINFO;
+	ft_printf("The PID is : %d\n", getpid());
+    sigaction(SIGUSR1, &sa, 0);
+    sigaction(SIGUSR2, &sa, 0);
 	while (1)
 	{
-		pause();
+        pause();
 	}
-
-
 }

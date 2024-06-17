@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 00:05:58 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/15 08:39:27 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/06/17 15:58:35 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 				kill(pid, SIGUSR1);
 			else if (binary[j] == '1')
 				kill(pid, SIGUSR2);
-			usleep(100);
+			usleep(3000);
 			j++;
 		}
 		i++;
