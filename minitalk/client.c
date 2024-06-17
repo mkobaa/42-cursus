@@ -6,85 +6,84 @@
 /*   By: mkobaa <mkobaa@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 00:05:58 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/17 15:58:35 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:45:41 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static int skip_spaces(const char *str)
+int	ft_atoi(char *str)
 {
-    int i = 0;
-    while (str[i] == ' ' || str[i] == '\n'
-        || str[i] == '\t' || str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
-        i++;
-    return i;
+	int	result;
+	int	sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (sign * result);
 }
 
-int ft_atoi(const char *str)
+char	*ascii_to_binary(char s)
 {
-    long rslt = 0;
-    int i = skip_spaces(str);
-    int sign = 1;
-    long max = 0;
+	static char	binary[9];
+	int			i;
 
-    if (str[i] == '+' || str[i] == '-')
-        if (str[i++] == '-')
-            sign = -1;
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        rslt = rslt * 10 + (str[i] - '0');
-        if (rslt < max && sign == -1)
-            return 0;
-        if (rslt < max && sign == 1)
-            return -1;
-        i++;
-        max = rslt;
-    }
-    return (int)(sign * rslt);
+	binary[8] = '\0';
+	i = 7;
+	while (s > 0 && i >= 0)
+	{
+		binary[i--] = (s & 1) + '0';
+		s >>= 1;
+	}
+	while (i >= 0)
+		binary[i--] = '0';
+	return (binary);
 }
 
-char *ascii_to_binary(char s)
+void	kill_signal(char c, int pid)
 {
-    static char binary[9];
-    binary[8] = '\0';
-    int i = 7;
-    while (s > 0 && i >= 0)
-    {
-        binary[i--] = (s & 1) + '0';
-        s >>= 1;
-    }
-    while (i >= 0)
-        binary[i--] = '0';
-    return binary;
+	if (c == '0')
+		kill(pid, SIGUSR1);
+	else if (c == '1')
+		kill(pid, SIGUSR2);
+	usleep(500);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    if (argc != 3)
-    {
-        printf("Usage: %s [PID] [MESSAGE]\n", argv[0]);
-        return 1;
-    }
+	int		pid;
+	char	*message;
+	int		i;
+	char	*binary;
+	int		j;
 
-    int pid = ft_atoi(argv[1]);
-    char *message = argv[2];
-
-	int i = 0;
+	if (argc != 3)
+	{
+		printf("Usage: %s [PID] [MESSAGE]\n", argv[0]);
+		return (1);
+	}
+	pid = ft_atoi(argv[1]);
+	message = argv[2];
+	i = 0;
 	while (message[i])
-    {
-		char *binary = ascii_to_binary(message[i]);
-		int j = 0;
+	{
+		binary = ascii_to_binary(message[i]);
+		j = 0;
 		while (binary[j])
-        {
-			if (binary[j] == '0')
-				kill(pid, SIGUSR1);
-			else if (binary[j] == '1')
-				kill(pid, SIGUSR2);
-			usleep(3000);
+		{
+			kill_signal(binary[j], pid);
 			j++;
 		}
 		i++;
 	}
-    return 0;
 }

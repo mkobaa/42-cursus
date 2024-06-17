@@ -3,23 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mkobaa <mkobaa@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 02:07:55 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/12 08:41:59 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:47:33 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#ifndef MINITALK_H
+# define MINITALK_H
 
-#ifndef MINITALK
-#define MINITALK
-
-#include <stdlib.h>
-#include <signal.h>
-
-int get_pid();
-int	ft_atoi(const char *str);
+# include <unistd.h>
+# include <stdlib.h>
+# include <signal.h>
+# include "ft_printf/ft_printf.h"
 
 #endif
