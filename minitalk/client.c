@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 00:05:58 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/17 17:45:41 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/06/17 18:09:27 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Usage: %s [PID] [MESSAGE]\n", argv[0]);
+		ft_printf("Usage: %s [PID] [MESSAGE]\n", argv[0]);
 		return (1);
 	}
 	pid = ft_atoi(argv[1]);

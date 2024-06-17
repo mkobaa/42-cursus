@@ -4,7 +4,7 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 SERVER_SRC = server.c ft_printf/ft_printf.c ft_printf/s_utils.c ft_printf/utils.c
-CLIENT_SRC = client.c
+CLIENT_SRC = client.c ft_printf/ft_printf.c ft_printf/s_utils.c ft_printf/utils.c
 
 SERVER_OBJ = $(SERVER_SRC:.c=.o)
 CLIENT_OBJ = $(CLIENT_SRC:.c=.o)

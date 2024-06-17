@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 02:07:55 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/06/17 17:47:33 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/06/17 18:03:47 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 # include <stdlib.h>
 # include <signal.h>
 # include "ft_printf/ft_printf.h"
+# include <stdarg.h>
 
 #endif
