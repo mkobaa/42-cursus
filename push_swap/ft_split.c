@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 16:36:56 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/05/27 16:37:08 by mkobaa           ###   ########.fr       */
+/*   Created: 2024/07/01 02:31:27 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/07/01 02:37:58 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	count_words(char const *s, char c)
 {

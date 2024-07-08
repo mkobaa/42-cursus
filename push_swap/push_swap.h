@@ -5,34 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 15:34:38 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/05/27 18:30:33 by mkobaa           ###   ########.fr       */
+/*   Created: 2024/07/01 02:30:27 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/07/05 08:08:34 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSHSWAP_H
+#define PUSHSWAP_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stddef.h>
-# include <stdio.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int		ft_printf(const char *format, ...);
-int		ft_putchar(char c);
-int		ft_putlowerhex(unsigned long num);
-int		ft_putnbr(long nb);
-int		ft_putstr(char *str);
-int		ft_putupperhex(unsigned long num);
-int		ft_unsignedlen(long nbr);
-int		ft_putptr(void *ptr);
-void	ft_putunsigned(long nb);
-int		check_int(char *s);
-int		check_space(char *s);
+void ft_puterror();
+int check_number(char *s);
+int check_sign(char *s);
+int check_full_spaces(char *s);
+int check_null(char *s);
+int just_sign(char *s);
+int	count_words(char const *s, char c);
+static int	word_len(const char *s, char c);
+static void	*ft_free(char **str, int i);
+static char	**ft_fill(char **str, char const *s, char c);
 char	**ft_split(char const *s, char c);
-int		count_words(char const *s, char c);
-int     process_arguments(int argc, char *argv[]);
-int     ft_strlen(char *s);
+static int	skip_spaces(const char *str);
+int	ft_atoi(const char *str);
+int check_duplicates(int *tab, int size);
 
 #endif
