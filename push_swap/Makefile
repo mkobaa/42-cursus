@@ -3,31 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+         #
+#    By: mkobaa <mkobaa@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/19 10:26:22 by mkobaa            #+#    #+#              #
-#    Updated: 2024/02/10 01:42:52 by mkobaa           ###   ########.fr        #
+#    Created: 2024/07/10 11:38:07 by mkobaa            #+#    #+#              #
+#    Updated: 2024/07/10 11:38:07 by mkobaa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = push_swap
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-SRC = s_utils.c	utils.c	ft_printf.c
+SRC = ft_split.c main.c functions/functions_1.c functions/functions_2.c functions/functions_3.c functions/functions_4.c \
+		moves/moves_1.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c ft_printf.h
-		$(CC) $(FLAGS) -c $<
+%.o: %.c push_swap.h
+	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME) : $(OBJ)
-		ar -rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 clean:
-		rm -rf $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-		rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all

@@ -15,42 +15,65 @@ int just_sign(char *s)
     return 1;
 }
 
-static int	skip_spaces(const char *str)
+long long	ft_atoi(const char *str)
 {
-	int	i;
+	long long	res;
+	int			negative;
 
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\n'
-		|| str[i] == '\t' || str[i] == '\v' || str[i] == '\r' || str[i] == '\f')
-		i++;
-	return (i);
+	negative = 1;
+	res = 0;
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
+			*str == '\v' || *str == '\f' || *str == '\r'))
+		++str;
+	if (*str == '-')
+		negative = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - 48);
+		++str;
+	}
+	return (res * negative);
 }
 
-int	ft_atoi(const char *str)
-{
-	long	rslt;
-	int		i;
-	int		sign;
-	long	max;
 
-	sign = 1;
-	i = skip_spaces(str);
-	rslt = 0;
-	max = 0;
-	if (str[i] == '+' || str[i] == '-')
-		if (str[i++] == '-')
-			sign = -1;
-	while (str[i] >= '0' && str[i] <= '9')
+stack_a *ft_lstnew(int content)
+{
+    stack_a *new;
+
+    new = malloc(sizeof(stack_a));
+    if (!new)
+        return (NULL);
+    new->value = content;
+    new->next = NULL;
+    return (new);
+}
+
+
+void	ft_lstadd_back(stack_a **lst, stack_a *new)
+{
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
 	{
-		rslt = rslt * 10 + (str[i] - '0');
-        if (str[i] == '-' || str[i] == '+')
-            return (0);
-		if (rslt < max && sign == -1)
-			return (0);
-		if (rslt < max && sign == 1)
-			return (-1);
-		i++;
-		max = rslt;
+		*lst = new;
+		return ;
 	}
-	return ((int)(sign * rslt));
+	while ((*lst)->next != NULL)
+	{
+		lst = &(*lst)->next;
+	}
+	(*lst)->next = new;
+}
+
+void lst_fill(int total_args, int *tab, stack_a **lst)
+{
+    int i = 0;
+    while (i < total_args)
+    {
+        stack_a *new_node = ft_lstnew(tab[i]);
+        ft_lstadd_back(lst, new_node);
+        i++;
+    }
 }

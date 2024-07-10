@@ -14,7 +14,7 @@ int check_number(char *s)
     {
         if ((s[i] < '0' || s[i] > '9'))
         {
-            if  (s[i] == '-' || s[i] == '+' || s[i] == ' ' || s[i] == '\t' || s[i] == ' ' || s[i] == '\t')
+            if  (s[i] == '-' || s[i] == '+' || s[i] == ' ')
                 i++;
             else
                 return 0;
@@ -49,7 +49,7 @@ int check_full_spaces(char *s)
     int i;
 
     i = 0;
-    while (s[i] != '\0')
+    while (s[i])
     {
         if (s[i] != ' ')
             return 1;

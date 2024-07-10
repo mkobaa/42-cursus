@@ -39,7 +39,7 @@ int	count_words(char const *s, char c)
 	return (k);
 }
 
-static int	word_len(const char *s, char c)
+int	word_len(const char *s, char c)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ static int	word_len(const char *s, char c)
 	return (i);
 }
 
-static void	*ft_free(char **str, int i)
+void	*ft_free(char **str, int i)
 {
 	while (i--)
 		free(str[i]);
@@ -57,7 +57,7 @@ static void	*ft_free(char **str, int i)
 	return (NULL);
 }
 
-static char	**ft_fill(char **str, char const *s, char c)
+char	**ft_fill(char **str, char const *s, char c)
 {
 	int		i;
 	int		j;
