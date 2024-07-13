@@ -53,14 +53,14 @@ int all_checks_2(char *s, int ac)
 	return 1;
 }
 
-int	ft_lstsize(stack_a *lst)
+int	ft_lstsize(t_list *stack_a)
 {
 	int	i;
 
 	i = 0;
-	while (lst)
+	while (stack_a)
 	{
-		lst = lst->next;
+		stack_a = stack_a->next;
 		i++;
 	}
 	return (i);

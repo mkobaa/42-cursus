@@ -94,3 +94,16 @@ void free_splitted(char **splitted)
     }
     free(splitted);
 }
+
+int check_sorted(int *tab, int size)
+{
+    int i;
+    i = 0;
+    while(i < size - 1)
+    {
+        if (tab[i] > tab[i + 1])
+            return 1;
+        i++;
+    }
+    return 0;
+}

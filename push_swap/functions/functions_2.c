@@ -38,11 +38,11 @@ long long	ft_atoi(const char *str)
 }
 
 
-stack_a *ft_lstnew(int content)
+t_list *ft_lstnew(int content)
 {
-    stack_a *new;
+    t_list *new;
 
-    new = malloc(sizeof(stack_a));
+    new = malloc(sizeof(t_list));
     if (!new)
         return (NULL);
     new->value = content;
@@ -51,29 +51,29 @@ stack_a *ft_lstnew(int content)
 }
 
 
-void	ft_lstadd_back(stack_a **lst, stack_a *new)
+void	ft_lstadd_back(t_list **stack_a, t_list *new)
 {
-	if (lst == NULL || new == NULL)
+	if (stack_a == NULL || new == NULL)
 		return ;
-	if (*lst == NULL)
+	if (*stack_a == NULL)
 	{
-		*lst = new;
+		*stack_a = new;
 		return ;
 	}
-	while ((*lst)->next != NULL)
+	while ((*stack_a)->next != NULL)
 	{
-		lst = &(*lst)->next;
+		stack_a = &(*stack_a)->next;
 	}
-	(*lst)->next = new;
+	(*stack_a)->next = new;
 }
 
-void lst_fill(int total_args, int *tab, stack_a **lst)
+void lst_fill(int total_args, int *tab, t_list **stack_a)
 {
     int i = 0;
     while (i < total_args)
     {
-        stack_a *new_node = ft_lstnew(tab[i]);
-        ft_lstadd_back(lst, new_node);
+        t_list *new_node = ft_lstnew(tab[i]);
+        ft_lstadd_back(stack_a, new_node);
         i++;
     }
 }

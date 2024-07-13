@@ -8,8 +8,9 @@
 typedef struct s_list
 {
     int             value;
+    int             index;
     struct s_list   *next;
-} stack_a ;
+} t_list ;
 
 void ft_puterror();
 int check_number(char *s);
@@ -25,15 +26,30 @@ char	**ft_split(char const *s, char c);
 int	skip_spaces(const char *str);
 long long	ft_atoi(const char *str);
 int check_duplicates(int *tab, int size);
-void	ft_lstadd_back(stack_a **lst, stack_a *new);
-stack_a	*ft_lstnew(int content);
-void lst_fill(int total_args, int *tab, stack_a **lst);
+void	ft_lstadd_back(t_list **stack_a, t_list *new);
+t_list	*ft_lstnew(int content);
+void lst_fill(int total_args, int *tab, t_list **stack_a);
 int all_checks(char *s, int ac);
 int all_checks_2(char *s, int ac);
-int	ft_lstsize(stack_a *lst);
+int	ft_lstsize(t_list *stack_a);
 void process_arguments(int ac, char *av[], int *tab, int *size);
 int calculate_args(int ac, char *av[]);
 void free_splitted(char **splitted);
 int check_arguments(int ac, char *av[]);
+void sa(t_list **stack_a);
+void sa(t_list **stack_b);
+void ss(t_list **stack_a, t_list **stack_b);
+void ra(t_list **stack_a);
+void rb(t_list **stack_b);
+void rr(t_list **stack_a, t_list **stack_b);
+void pa(t_list **stack_a, t_list **stack_b);
+void pb(t_list **stack_a, t_list **stack_b);
+void rra(t_list **stack_a);
+void rrb(t_list **stack_b);
+void rrr(t_list **stack_a, t_list **stack_b);
+void sort_two(t_list **stack_a);
+int check_sorted(int *tab, int size);
+void sort_three(t_list **stack_a);
+void sort_five(t_list **stack_a, t_list **stack_b);
 
 #endif
