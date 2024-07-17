@@ -12,9 +12,9 @@
 
 NAME = push_swap
 CC = cc
-FLAGS = -Wall -Werror -Wextra
-SRC = ft_split.c main.c functions/functions_1.c functions/functions_2.c functions/functions_3.c functions/functions_4.c \
-		moves/moves_1.c moves/moves_2.c moves/moves_3.c sort/sort_cases.c functions/functions_5.c
+FLAGS = 
+SRC = main.c functions/ft_split.c functions/functions_1.c functions/functions_2.c functions/functions_3.c functions/functions_4.c \
+		moves/moves_1.c moves/moves_2.c moves/moves_3.c algo/sort_cases.c functions/functions_5.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

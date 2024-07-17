@@ -32,7 +32,7 @@ void lst_fill(int total_args, int *tab, t_list **stack_a);
 int all_checks(char *s, int ac);
 int all_checks_2(char *s, int ac);
 int	ft_lstsize(t_list *stack_a);
-void process_arguments(int ac, char *av[], int *tab, int *size);
+void process_arguments(int ac, char *av[], int *tab);
 int calculate_args(int ac, char *av[]);
 void free_splitted(char **splitted);
 int check_arguments(int ac, char *av[]);
@@ -51,5 +51,8 @@ void sort_two(t_list **stack_a);
 int check_sorted(int *tab, int size);
 void sort_three(t_list **stack_a);
 void sort_five(t_list **stack_a, t_list **stack_b);
+void sort_four(t_list **stack_a, t_list **stack_b);
+void add_indices(t_list **stack_a);
+void sort_cases(int size, t_list **stack_a, t_list **stack_b);
 
 #endif

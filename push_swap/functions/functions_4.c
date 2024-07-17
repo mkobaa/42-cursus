@@ -24,7 +24,7 @@ int calculate_args(int ac, char *av[])
     return args;
 }
 
-void process_arguments(int ac, char *av[], int *tab, int *size)
+void process_arguments(int ac, char *av[], int *tab)
 {
     int i = 1;
     int number = 1;
@@ -41,7 +41,6 @@ void process_arguments(int ac, char *av[], int *tab, int *size)
             tab[tab_i] = ft_atoi(splitted[split_i]);
             split_i++;
             tab_i++;
-            (*size)++;
         }
         free_splitted(splitted);
         number++;

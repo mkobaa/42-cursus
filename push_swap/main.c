@@ -1,16 +1,24 @@
 #include "push_swap.h"
 
+void visualizeStack(t_list* top, const char* stackName) {
+    printf("%s:\n", stackName);
+    while (top != NULL) {
+        printf("| Value: %d, Index: %d |\n", top->value, top->index);
+        top = top->next;
+    }
+    printf("---------------\n");
+}
+
 int main(int ac, char *av[])
 {
     int total_args = calculate_args(ac, av);
     int *tab = malloc(total_args * sizeof(int));    
     t_list *stack_a = NULL;
     t_list *stack_b = NULL;
-    int size = 0;
 
     if (!check_arguments(ac, av))
         return 0;
-    process_arguments(ac, av, tab, &size);
+    process_arguments(ac, av, tab);
     if (!check_duplicates(tab, total_args))
 	{
 		return 0;
@@ -22,27 +30,14 @@ int main(int ac, char *av[])
         free(tab);
     }
 	lst_fill(total_args, tab, &stack_a);
-    if (total_args == 2)
-        sort_two(&stack_a);
-    if (total_args == 3)
-        sort_three(&stack_a);
-    if (total_args == 5)
-        sort_five(&stack_a, &stack_b);
-
-    // printf("stack a :\n");
-    
-    // while(stack_a)
-    // {
-    //     printf("%d ", stack_a->value);
-    //     stack_a = stack_a->next;
-    // }
-    // printf("\n");
-    // printf("stack b :\n");
-    // while(stack_b)
-    // {
-    //     printf("%d ", stack_b->value);
-    //     stack_b = stack_b->next;
-    // }
+    add_indices(&stack_a);
+    if (total_args <= 5)
+        sort_cases(total_args, &stack_a, &stack_b);
+    else
+        sort_more(total_args, &stack_a, &stack_b);
+    // printf("%s", "\n");
+    // visualizeStack(stack_a, "Stack A");
+    // visualizeStack(stack_b, "Stack B");
     free(tab);
     return 0;
 }
