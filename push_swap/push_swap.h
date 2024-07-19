@@ -7,10 +7,15 @@
 
 typedef struct s_list
 {
+    struct s_list  *prev;
     int             value;
     int             index;
-    struct s_list   *next;
-} t_list ;
+    int             pos;
+    int             cost_a;
+    int             cost_b;
+    struct s_list  *next;
+} t_list;
+
 
 void ft_puterror();
 int check_number(char *s);
@@ -52,7 +57,11 @@ int check_sorted(int *tab, int size);
 void sort_three(t_list **stack_a);
 void sort_five(t_list **stack_a, t_list **stack_b);
 void sort_four(t_list **stack_a, t_list **stack_b);
+void add_positions(t_list **stack_a);
 void add_indices(t_list **stack_a);
 void sort_cases(int size, t_list **stack_a, t_list **stack_b);
+void sort_all_cases(int size, t_list **stack_a, t_list **stack_b);
+void sort_38(int size, t_list **stack_a, t_list **stack_b);
+int calculate_cost(t_list **stack_a, int index);
 
 #endif

@@ -37,7 +37,7 @@ void sort_four(t_list **stack_a, t_list **stack_b)
     int i = 0;
     while(i < 4)
     {
-        if ((*stack_a)->index > 2)
+        if ((*stack_a)->pos > 2)
         {
             pb(stack_a, stack_b);
         }
@@ -57,7 +57,7 @@ void sort_five(t_list **stack_a, t_list **stack_b)
     int i = 0;
     while(i < 5)
     {
-        if ((*stack_a)->index > 2)
+        if ((*stack_a)->pos > 2)
         {
             pb(stack_a, stack_b);
         }

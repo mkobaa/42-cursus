@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void add_indices(t_list **stack_a)
+void add_positions(t_list **stack_a)
 {
     int size = ft_lstsize(*stack_a);
     if (size == 0) return;
@@ -31,12 +31,23 @@ void add_indices(t_list **stack_a)
     i = 0;
     while (i < size)
     {
-        nodes[i]->index = i;
+        nodes[i]->pos = i;
         i++;
     }
     free(nodes);
 }
 
+void add_indices(t_list **stack_a)
+{
+    t_list *node = *stack_a;
+    int i = 0;
+    while (node)
+    {
+        node->index = i;
+        node = node->next;
+        i++;
+    }
+}
 
 void sort_cases(int size, t_list **stack_a, t_list **stack_b)
 {  
