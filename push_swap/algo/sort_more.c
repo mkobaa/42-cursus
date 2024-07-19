@@ -1,157 +1,61 @@
 #include "../push_swap.h"
 #include <limits.h>
 
-int calculate_cost(t_list **stack_a, int index)
+void push_to_b(int size, t_list **stack_a, t_list **stack_b)
 {
-    int size = ft_lstsize(*stack_a);
-    int cost;
-    
-    if (index < size / 2)
-        cost = index;
-    else
-        cost = size - index;
-
-    return cost;
-}
-
-void sort_38(int size, t_list **stack_a, t_list **stack_b)
-{
-    int j = 0;
-    int chunk_size;
-
-    if (size >= 20)
-        chunk_size = 20;
-    else
-        chunk_size = size;
-
-    while (j < chunk_size)
+    int cost_a = -1;
+    int cost_b = -1;
+    int a;
+    int b;
+    // if (size == 20)
+    while (*stack_a)
     {
         t_list *node = *stack_a;
-        int best_cost = INT_MAX;
-        int best_pos = -1;
-        int best_index = -1;
-
-        while (node != NULL)
+        while (node->index < size / 2)
         {
-            if (node->index <= size / 2 && node->pos >= 0 && node->pos < chunk_size)
+            if (node->pos < 19)
             {
-                int cost = calculate_cost(stack_a, node->index);
-                if (cost < best_cost)
-                {
-                    best_cost = cost;
-                    best_pos = node->pos;
-                    best_index = node->index;
-                }
+                cost_a = node->index;
+                a = node->index;
+                break;
             }
             node = node->next;
         }
-
-        if (best_index != -1)
+        while (node && node->index < size / 2)
+            node = node->next;
+        while (node)
         {
-            node = *stack_a;
-            int i = 0;
-            while (node != NULL && node->index != best_index)
+            if (node->pos <= 19)
             {
-                node = node->next;
+                cost_b = size - node->index;
+                b = node->index;
+            }
+            node = node->next;
+        }
+        printf("%d\n", cost_a);
+        printf("%d\n", cost_b);
+        int i = 0;
+        // printf("%d\n", cost_a);
+        // printf("%d\n", cost_b);
+        if (cost_a > cost_b)
+        {
+            while (i != cost_a)
+            {
+                ra(stack_a);
                 i++;
             }
-            if (i <= ft_lstsize(*stack_a) / 2)
+            pb(stack_a, stack_b);
+        }
+        else
+        {
+            while(i != cost_b)
             {
-                int rotate_count = i;
-                while (rotate_count > 0)
-                {
-                    ra(stack_a);
-                    rotate_count--;
-                }
-            }
-            else
-            {
-                int reverse_rotate_count = ft_lstsize(*stack_a) - i;
-                while (reverse_rotate_count > 0)
-                {
-                    rra(stack_a);
-                    reverse_rotate_count--;
-                }
+                rra(stack_a);
+                i++;
             }
             pb(stack_a, stack_b);
-            add_indices(stack_a);
-            add_indices(stack_b);
         }
-        j++;
+        add_positions(stack_a);
+        add_indices(stack_a);
     }
-    t_list *node = *stack_a;
-    while (node)
-    {
-        pb(stack_a, stack_b);
-        node = node->next;
-    }
-    
 }
-
-
-
-void sort_all_cases(int size, t_list **stack_a, t_list **stack_b)
-{
-    if (size >= 79 && size <= 100)
-    {
-        sort_38(size, stack_a, stack_b);
-        add_positions(stack_a);
-        sort_38(size, stack_a, stack_b);
-        add_positions(stack_a);
-        sort_38(size, stack_a, stack_b);
-        add_positions(stack_a);
-        sort_38(size, stack_a, stack_b);
-    }
-    else if (size >= 59 && size < 79)
-    {
-        sort_38(size, stack_a, stack_b);
-        add_positions(stack_a);
-        sort_38(size, stack_a, stack_b);
-        add_positions(stack_a);
-        sort_38(size, stack_a, stack_b);
-    }
-    else if (size >= 39 && size < 59)
-    {
-        sort_38(size, stack_a, stack_b);
-        add_positions(stack_a);
-        sort_38(size, stack_a, stack_b);
-    }
-    else if (size >= 20 && size < 39)
-        sort_38(size, stack_a, stack_b);
-
-
-
-while (*stack_b) {
-    int max = size - 1;
-    t_list *node = *stack_b;
-    int best_cost = INT_MAX;
-    int best_pos = -1;
-    int best_index = -1;
-
-    // Single traversal to find the best cost node
-    while (node != NULL) {
-        if (node->index <= size / 2 && (node->pos == max || node->pos == max - 1)) {
-            int cost = calculate_cost(stack_a, node->index);
-            if (cost < best_cost) {
-                best_cost = cost;
-                best_pos = node->pos;
-                best_index = node->index;
-            }
-        }
-        node = node->next;
-    }
-
-    // Rotate to the best position
-    while ((*stack_b)->pos != best_pos) {
-        rb(stack_b);
-    }
-    pa(stack_a, stack_b);
-}
-
-
-
-// printf("%d", best_pos);
-
-
-}
-
