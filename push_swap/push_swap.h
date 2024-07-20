@@ -60,7 +60,9 @@ void sort_four(t_list **stack_a, t_list **stack_b);
 void add_positions(t_list **stack_a);
 void add_indices(t_list **stack_a);
 void sort_cases(int size, t_list **stack_a, t_list **stack_b);
-void push_to_b(int size, t_list **stack_a, t_list **stack_b);
+void push_to_b(t_list **stack_a, t_list **stack_b);
+void push_to_a(t_list **stack_a, t_list **stack_b);
 int calculate_cost(t_list **stack_a, int index);
+void sort_stack(t_list **stack_a, t_list **stack_b);
 
 #endif

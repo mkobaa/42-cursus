@@ -35,10 +35,11 @@ int main(int ac, char *av[])
     add_indices(&stack_b);
     if (total_args <= 5)
         sort_cases(total_args, &stack_a, &stack_b);
-    push_to_b(total_args, &stack_a, &stack_b);
-    // printf("%s", "\n");
-    // visualizeStack(stack_a, "Stack A");
-    // visualizeStack(stack_b, "Stack B");
+    sort_stack(&stack_a, &stack_b);
+    printf("%s", "\n");
+    add_positions(&stack_a);
+    visualizeStack(stack_a, "Stack A");
+    visualizeStack(stack_b, "Stack B");
     free(tab);
     return 0;
 }
