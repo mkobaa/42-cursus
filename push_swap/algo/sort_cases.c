@@ -38,13 +38,9 @@ void sort_four(t_list **stack_a, t_list **stack_b)
     while(i < 4)
     {
         if ((*stack_a)->pos > 2)
-        {
             pb(stack_a, stack_b);
-        }
         else
-        {
             ra(stack_a);
-        }
         i++;
     }
     sort_three(stack_a);

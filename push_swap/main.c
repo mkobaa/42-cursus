@@ -3,7 +3,7 @@
 void visualizeStack(t_list* top, const char* stackName) {
     printf("%s:\n", stackName);
     while (top != NULL) {
-        printf("| Value: %d, pos: %d, index: %d | \n", top->value, top->pos, top->index);
+        printf("| Value: %d, pos: %d, index: %d, cost: %d | \n", top->value, top->pos, top->index, top->cost);
         top = top->next;
     }
     printf("---------------\n");
@@ -35,11 +35,19 @@ int main(int ac, char *av[])
     add_indices(&stack_b);
     if (total_args <= 5)
         sort_cases(total_args, &stack_a, &stack_b);
-    sort_stack(&stack_a, &stack_b);
-    printf("%s", "\n");
-    add_positions(&stack_a);
-    visualizeStack(stack_a, "Stack A");
-    visualizeStack(stack_b, "Stack B");
+    else
+    {
+        push_a_to_b(&stack_a, &stack_b);
+        add_indices(&stack_b);
+        calculate_cost(&stack_b);
+        add_positions(&stack_b);
+        push_b_to_a(&stack_a, &stack_b);
+    }
+    calculate_cost(&stack_a);
+    // printf("%s", "\n");
+    // add_positions(&stack_a);
+    // visualizeStack(stack_a, "Stack A");
+    // visualizeStack(stack_b, "Stack B");
     free(tab);
     return 0;
 }

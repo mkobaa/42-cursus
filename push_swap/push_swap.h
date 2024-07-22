@@ -11,8 +11,7 @@ typedef struct s_list
     int             value;
     int             index;
     int             pos;
-    int             cost_a;
-    int             cost_b;
+    int             cost;
     struct s_list  *next;
 } t_list;
 
@@ -60,9 +59,9 @@ void sort_four(t_list **stack_a, t_list **stack_b);
 void add_positions(t_list **stack_a);
 void add_indices(t_list **stack_a);
 void sort_cases(int size, t_list **stack_a, t_list **stack_b);
-void push_to_b(t_list **stack_a, t_list **stack_b);
-void push_to_a(t_list **stack_a, t_list **stack_b);
-int calculate_cost(t_list **stack_a, int index);
-void sort_stack(t_list **stack_a, t_list **stack_b);
+void push_a_to_b(t_list **stack_a, t_list **stack_b);
+void push_min_cost(t_list **stack_a, t_list **stack_b);
+void calculate_cost(t_list **stack);
+void push_b_to_a(t_list **stack_a, t_list **stack_b);
 
 #endif
