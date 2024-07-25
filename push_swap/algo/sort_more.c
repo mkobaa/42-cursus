@@ -3,7 +3,9 @@
 
 void calculate_cost(t_list **stack)
 {
-    t_list *head = *stack;
+    t_list *head;
+
+    head = *stack;
     while (head)
     {
         if (head->index <= ft_lstsize(*stack) / 2)

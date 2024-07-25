@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves_3.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/25 00:28:55 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/07/25 00:28:55 by mkobaa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void rrr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_list **stack_a, t_list **stack_b)
 {
-    rra(stack_a);
-    rrb(stack_b);
-    printf("rrr\n");
+	rra(stack_a);
+	rrb(stack_b);
+	write(1, "rrr\n", 4);
 }

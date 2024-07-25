@@ -23,7 +23,7 @@ all: $(NAME)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(FLAGS)  -o $(NAME) $(OBJ)
 
 clean:
 	rm -rf $(OBJ)

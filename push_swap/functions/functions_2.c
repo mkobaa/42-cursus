@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/24 23:21:25 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/07/24 23:21:25 by mkobaa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-int just_sign(char *s)
+int	just_sign(char *s)
 {
-    int i; 
+	int	i;
 
-    i = 0;
-    while (s[i])
-        i++;
-    if (i == 1)
-    {
-        if (s[0] == '+' || s[0] == '-')
-            return 0;
-    }
-    return 1;
+	i = 0;
+	while (s[i])
+		i++;
+	if (i == 1)
+	{
+		if (s[0] == '+' || s[0] == '-')
+			return (0);
+	}
+	return (1);
 }
 
 long long	ft_atoi(const char *str)
@@ -22,8 +34,8 @@ long long	ft_atoi(const char *str)
 
 	negative = 1;
 	res = 0;
-	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r'))
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\v' || *str == '\f' || *str == '\r'))
 		++str;
 	if (*str == '-')
 		negative = -1;
@@ -37,19 +49,17 @@ long long	ft_atoi(const char *str)
 	return (res * negative);
 }
 
-
-t_list *ft_lstnew(int content)
+t_list	*ft_lstnew(int content)
 {
-    t_list *new;
+	t_list	*new;
 
-    new = malloc(sizeof(t_list));
-    if (!new)
-        return (NULL);
-    new->value = content;
-    new->next = NULL;
-    return (new);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->value = content;
+	new->next = NULL;
+	return (new);
 }
-
 
 void	ft_lstadd_back(t_list **stack_a, t_list *new)
 {
@@ -67,13 +77,16 @@ void	ft_lstadd_back(t_list **stack_a, t_list *new)
 	(*stack_a)->next = new;
 }
 
-void lst_fill(int total_args, int *tab, t_list **stack_a)
+void	lst_fill(int total_args, int *tab, t_list **stack_a)
 {
-    int i = 0;
-    while (i < total_args)
-    {
-        t_list *new_node = ft_lstnew(tab[i]);
-        ft_lstadd_back(stack_a, new_node);
-        i++;
-    }
+	int		i;
+	t_list	*new_node;
+
+	i = 0;
+	while (i < total_args)
+	{
+		new_node = ft_lstnew(tab[i]);
+		ft_lstadd_back(stack_a, new_node);
+		i++;
+	}
 }

@@ -7,7 +7,6 @@
 
 typedef struct s_list
 {
-    struct s_list  *prev;
     int             value;
     int             index;
     int             pos;
@@ -42,6 +41,7 @@ void free_splitted(char **splitted);
 int check_arguments(int ac, char *av[]);
 void sa(t_list **stack_a);
 void sa(t_list **stack_b);
+void sb(t_list **stack_b);
 void ss(t_list **stack_a, t_list **stack_b);
 void ra(t_list **stack_a);
 void rb(t_list **stack_b);
@@ -63,5 +63,6 @@ void push_a_to_b(t_list **stack_a, t_list **stack_b);
 void push_min_cost(t_list **stack_a, t_list **stack_b);
 void calculate_cost(t_list **stack);
 void push_b_to_a(t_list **stack_a, t_list **stack_b);
+void visualizeStack(t_list* top, const char* stackName);
 
 #endif
