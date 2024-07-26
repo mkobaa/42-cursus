@@ -78,5 +78,6 @@ void		to_top_3(t_list *node, t_list **stack_a, t_list **stack_b);
 void		to_top_2(t_list **stack_a, t_list **stack_b, int top, int bottom);
 void		reindex(t_list **stack);
 int			check_in_array(int ac, char *av[], int size, int *tab);
+void		declare_variables(t_list **nd, t_list **s_a, t_list **s_b);
 
 #endif

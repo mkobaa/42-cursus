@@ -39,6 +39,13 @@ void	reindex(t_list **stack)
 	add_positions(stack);
 }
 
+void	declare_variables(t_list **node, t_list **s_a, t_list **s_b)
+{
+	*s_a = NULL;
+	*node = *s_a;
+	s_b = NULL;
+}
+
 int	main(int ac, char *av[])
 {
 	int		total_args;
@@ -47,15 +54,11 @@ int	main(int ac, char *av[])
 	t_list	*stack_b;
 	t_list	*node;
 
+	declare_variables(&node, &stack_a, &stack_b);
 	total_args = calculate_args(ac, av);
 	tab = malloc(total_args * sizeof(int));
-	stack_a = NULL;
-	stack_b = NULL;
 	if (!check_in_array(ac, av, total_args, tab))
-	{
-		free(tab);
-		return (0);
-	}
+		return (free(tab), 0);
 	lst_fill(total_args, tab, &stack_a);
 	free(tab);
 	add_indices(&stack_b);
@@ -63,7 +66,6 @@ int	main(int ac, char *av[])
 		sort_cases(total_args, &stack_a, &stack_b);
 	else
 		sort_more(&stack_a, &stack_b);
-	node = stack_a;
 	while (node)
 	{
 		free(node);

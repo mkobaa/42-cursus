@@ -28,7 +28,7 @@ void	calculate_cost(t_list **stack)
 	}
 }
 
-static void	declare(int *chz, int *mct, int *mcb)
+void	declare(int *chz, int *mct, int *mcb)
 {
 	*chz = 20;
 	*mcb = INT_MAX;

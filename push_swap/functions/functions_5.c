@@ -14,48 +14,24 @@
 
 void	add_positions(t_list **stack_a)
 {
-	int		size ;
-	t_list	**nodes;
 	t_list	*current;
-	int		i;
-	int		j;
-	t_list	*temp;
+	t_list	*compare;
+	int		pos;
 
-	size = ft_lstsize(*stack_a);
-	if (size == 0)
-		return ;
-	nodes = (t_list **)malloc(size * sizeof(t_list *));
 	current = *stack_a;
-	i = 0;
-	while (i < size)
+	while (current != NULL)
 	{
-		nodes[i] = current;
-		current = current->next;
-		i++;
-	}
-	i = 0;
-	while (i < size - 1)
-	{
-		j = i + 1;
-		while (j < size)
+		pos = 0;
+		compare = *stack_a;
+		while (compare != NULL)
 		{
-			if (nodes[i]->value > nodes[j]->value)
-			{
-				temp = nodes[i];
-				nodes[i] = nodes[j];
-				nodes[j] = temp;
-			}
-			j++;
+			if (compare->value < current->value)
+				pos++;
+			compare = compare->next;
 		}
-		i++;
+		current->pos = pos;
+		current = current->next;
 	}
-	i = 0;
-	while (i < size)
-	{
-		nodes[i]->pos = i;
-		i++;
-	}
-	free(nodes);
 }
 
 void	add_indices(t_list **stack_a)
