@@ -81,7 +81,7 @@ int	check_arguments(int ac, char *av[])
 		split_i = 0;
 		while (split_i < count_words(av[i], ' '))
 		{
-			if (!all_checks(splitted[split_i], ac) || !all_checks_2(av[i], ac))
+			if (!all_checks(splitted[split_i], ac))
 			{
 				ft_puterror();
 				return (free_splitted(splitted), 0);

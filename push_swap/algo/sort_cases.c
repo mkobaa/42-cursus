@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 00:32:02 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/07/25 00:32:02 by mkobaa           ###   ########.fr       */
+/*   Created: 2024/07/25 22:20:22 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/07/25 22:20:22 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_sorted_list(t_list *stack)
 {
-	while(stack)
+	while (stack)
 	{
 		if (stack->next && stack->pos > stack->next->pos)
 			return (0);
@@ -22,6 +22,7 @@ int	check_sorted_list(t_list *stack)
 	}
 	return (1);
 }
+
 void	sort_two(t_list **stack_a)
 {
 	if ((*stack_a)->value > (*stack_a)->next->value)
@@ -58,75 +59,41 @@ void	sort_three(t_list **stack_a)
 
 void	sort_four(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
+	t_list	*node;
 
-	i = 0;
-	while (i < 4)
-	{
-		if ((*stack_a)->pos > 2)
-			pb(stack_a, stack_b);
-		else
-			ra(stack_a);
-		i++;
-	}
-	sort_three(stack_a);
-	pa(stack_a, stack_b);
-	ra(stack_a);
-}
-
-void sort_five(t_list **stack_a, t_list **stack_b)
-{
 	add_positions(stack_a);
-	t_list *node = *stack_a; 
+	node = *stack_a;
 	if (check_sorted_list(node))
 		return ;
 	node = *stack_a;
-	while (node)
-	{
-		if ((node)->pos == 0)
-		{
-		break;
-		}
-		node = node->next;
-	}
-	if (node->index < ft_lstsize(*stack_a) / 2)
-	{
-		while((*stack_a)->pos != 0)
-			ra(stack_a);
-				  
-	}
-	else
-	{
-		while((*stack_a)->pos != 0)
-			rra(stack_a);
-	}
+	node = find_node(node, 0);
+	to_top(node, stack_a, node->pos);
 	pb(stack_a, stack_b);
 	node = *stack_a;
-	while (node)
-	{
-		if ((node)->pos == 1)
-		{
-		break;
-		}
-		node = node->next;
-	}
-	if (node->index < ft_lstsize(*stack_a) / 2)
-	{
-		while((*stack_a)->pos != 1)
-			ra(stack_a);
-	}
-	else
-	{
-		while((*stack_a)->pos != 1)
-			rra(stack_a);
-	}
-	pb(stack_a, stack_b);
-
-
-
-	node = *stack_a; 
 	if (!check_sorted_list(node))
 		sort_three(stack_a);
-    pa(stack_a, stack_b);
-    pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+}
+
+void	sort_five(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*node;
+
+	add_positions(stack_a);
+	node = *stack_a;
+	if (check_sorted_list(node))
+		return ;
+	node = *stack_a;
+	node = find_node(node, 0);
+	to_top(node, stack_a, node->pos);
+	pb(stack_a, stack_b);
+	node = *stack_a;
+	node = find_node(node, 1);
+	to_top(node, stack_a, node->pos);
+	pb(stack_a, stack_b);
+	node = *stack_a;
+	if (!check_sorted_list(node))
+		sort_three(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }

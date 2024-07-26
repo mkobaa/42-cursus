@@ -89,4 +89,6 @@ void	lst_fill(int total_args, int *tab, t_list **stack_a)
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}
+	add_positions(stack_a);
+	add_indices(stack_a);
 }

@@ -12,15 +12,23 @@
 
 #include "../push_swap.h"
 
-void add_positions(t_list **stack_a)
+void	add_positions(t_list **stack_a)
 {
-	int size = ft_lstsize(*stack_a);
-	if (size == 0) return;
+	int		size ;
+	t_list	**nodes;
+	t_list	*current;
+	int		i;
+	int		j;
+	t_list	*temp;
 
-	t_list **nodes = (t_list **)malloc(size * sizeof(t_list *));
-	t_list *current = *stack_a;
-	int i = 0;
-	while (i < size) {
+	size = ft_lstsize(*stack_a);
+	if (size == 0)
+		return ;
+	nodes = (t_list **)malloc(size * sizeof(t_list *));
+	current = *stack_a;
+	i = 0;
+	while (i < size)
+	{
 		nodes[i] = current;
 		current = current->next;
 		i++;
@@ -28,15 +36,16 @@ void add_positions(t_list **stack_a)
 	i = 0;
 	while (i < size - 1)
 	{
-		int j = i + 1;
-		while (j < size) {
-		if (nodes[i]->value > nodes[j]->value)
+		j = i + 1;
+		while (j < size)
 		{
-			t_list *temp = nodes[i];
-			nodes[i] = nodes[j];
-			nodes[j] = temp;
-		}
-		j++;
+			if (nodes[i]->value > nodes[j]->value)
+			{
+				temp = nodes[i];
+				nodes[i] = nodes[j];
+				nodes[j] = temp;
+			}
+			j++;
 		}
 		i++;
 	}
@@ -74,4 +83,29 @@ void	sort_cases(int size, t_list **stack_a, t_list **stack_b)
 		sort_five(stack_a, stack_b);
 	if (size == 4)
 		sort_four(stack_a, stack_b);
+}
+
+void	to_top(t_list *node, t_list **stack, int pos)
+{
+	if (node->index < ft_lstsize(*stack) / 2)
+	{
+		while ((*stack)->pos != pos)
+			ra(stack);
+	}
+	else
+	{
+		while ((*stack)->pos != pos)
+			rra(stack);
+	}
+}
+
+t_list	*find_node(t_list *node, int pos)
+{
+	while (node)
+	{
+		if ((node)->pos == pos)
+			break ;
+		node = node->next;
+	}
+	return (node);
 }
