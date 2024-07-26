@@ -45,7 +45,7 @@ int	all_checks(char *s, int ac)
 	if (ac == 1)
 		return (0);
 	if (!check_full_spaces(s) || !check_sign(s) || !check_null(s)
-		||  !check_number(s) || !just_sign(s) || ft_atoi(s) > max
+		|| !check_number(s) || !just_sign(s) || ft_atoi(s) > max
 		|| ft_atoi(s) < min)
 		return (0);
 	return (1);

@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdio.h>
 
 typedef struct s_list
 {
@@ -45,7 +44,7 @@ void		lst_fill(int total_args, int *tab, t_list **stack_a);
 int			all_checks(char *s, int ac);
 int			all_checks_2(char *s, int ac);
 int			ft_lstsize(t_list *stack_a);
-void		process_arguments(int ac, char *av[], int *tab);
+int			process_arguments(int ac, char *av[], int *tab);
 int			calculate_args(int ac, char *av[]);
 void		free_splitted(char **splitted);
 int			check_arguments(int ac, char *av[]);

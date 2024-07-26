@@ -17,7 +17,8 @@ int	check_in_array(int ac, char *av[], int size, int *tab)
 {
 	if (!check_arguments(ac, av))
 		return (0);
-	process_arguments(ac, av, tab);
+	if (!process_arguments(ac, av, tab))
+		return (0);
 	if (!check_duplicates(tab, size))
 		return (0);
 	if (!check_sorted(tab, size))
@@ -53,12 +54,6 @@ int	main(int ac, char *av[])
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_list	*node;
-	
-	if (ac == 1)
-	{
-		return 0;
-	}
-	
 
 	declare_variables(&node, &stack_a, &stack_b);
 	total_args = calculate_args(ac, av);

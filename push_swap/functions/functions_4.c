@@ -39,36 +39,33 @@ int	calculate_args(int ac, char *av[])
 	return (args);
 }
 
-void	process_arguments(int ac, char *av[], int *tab)
+int	process_arguments(int ac, char *av[], int *tab)
 {
 	int		i;
-	int		number;
 	int		tab_i;
 	char	**splitted;
 	int		split_i;
+	int		words_count;
 
 	i = 1;
-	number = 1;
 	tab_i = 0;
-	while (number < ac)
+	while (i < ac)
 	{
-		if (count_words(av[number], ' ') == 0)
-		{
-			ft_puterror();
-			return ;
-		}
+		words_count = count_words(av[i], ' ');
+		if (words_count == 0)
+			return (ft_puterror(), 0);
 		splitted = ft_split(av[i], ' ');
 		split_i = 0;
-		while (split_i < count_words(av[i], ' '))
+		while (split_i < words_count)
 		{
 			tab[tab_i] = ft_atoi(splitted[split_i]);
 			split_i++;
 			tab_i++;
 		}
 		free_splitted(splitted);
-		number++;
 		i++;
 	}
+	return (1);
 }
 
 int	check_arguments(int ac, char *av[])
