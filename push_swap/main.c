@@ -53,6 +53,12 @@ int	main(int ac, char *av[])
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_list	*node;
+	
+	if (ac == 1)
+	{
+		return 0;
+	}
+	
 
 	declare_variables(&node, &stack_a, &stack_b);
 	total_args = calculate_args(ac, av);

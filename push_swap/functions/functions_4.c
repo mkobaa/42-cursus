@@ -52,6 +52,11 @@ void	process_arguments(int ac, char *av[], int *tab)
 	tab_i = 0;
 	while (number < ac)
 	{
+		if (count_words(av[number], ' ') == 0)
+		{
+			ft_puterror();
+			return ;
+		}
 		splitted = ft_split(av[i], ' ');
 		split_i = 0;
 		while (split_i < count_words(av[i], ' '))

@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_list
 {
@@ -68,14 +69,15 @@ void		sort_four(t_list **stack_a, t_list **stack_b);
 void		add_positions(t_list **stack_a);
 void		add_indices(t_list **stack_a);
 void		sort_cases(int size, t_list **stack_a, t_list **stack_b);
+void		sort_more(t_list **stack_a, t_list **stack_b);
 void		push_a_to_b(t_list **stack_a, t_list **stack_b);
 void		push_min_cost(t_list **stack_a, t_list **stack_b);
 void		calculate_cost(t_list **stack);
 void		push_b_to_a(t_list **stack_a, t_list **stack_b);
 t_list		*find_node(t_list *node, int pos);
 void		to_top(t_list *node, t_list **stack, int pos);
-void		to_top_3(t_list *node, t_list **stack_a, t_list **stack_b);
 void		to_top_2(t_list **stack_a, t_list **stack_b, int top, int bottom);
+void		to_top_3(t_list *node, t_list **stack_a, t_list **stack_b);
 void		reindex(t_list **stack);
 int			check_in_array(int ac, char *av[], int size, int *tab);
 void		declare_variables(t_list **nd, t_list **s_a, t_list **s_b);

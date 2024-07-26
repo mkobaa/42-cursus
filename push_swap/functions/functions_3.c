@@ -44,8 +44,8 @@ int	all_checks(char *s, int ac)
 	min = -2147483648;
 	if (ac == 1)
 		return (0);
-	if (!check_number(s) || !check_sign(s) || !check_null(s)
-		|| !check_full_spaces(s) || !just_sign(s) || ft_atoi(s) > max
+	if (!check_full_spaces(s) || !check_sign(s) || !check_null(s)
+		||  !check_number(s) || !just_sign(s) || ft_atoi(s) > max
 		|| ft_atoi(s) < min)
 		return (0);
 	return (1);
