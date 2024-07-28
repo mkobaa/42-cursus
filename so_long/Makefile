@@ -6,7 +6,7 @@
 #    By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/27 01:29:00 by mkobaa            #+#    #+#              #
-#    Updated: 2024/07/27 05:30:12 by mkobaa           ###   ########.fr        #
+#    Updated: 2024/07/28 03:08:14 by mkobaa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 %.o: %.c so_long.h
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) -Imlx -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS)  -o $(NAME) $(OBJ)
+	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

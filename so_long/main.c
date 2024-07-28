@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 01:34:06 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/07/27 06:41:28 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/07/28 06:56:17 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	check_file(int ac, char *av[])
 
 int	create_1d_map(char *av[], t_list *map)
 {
-	int		fd;
 	char	*line;
 	char	*s;
 
@@ -151,24 +150,236 @@ int main_checks(int ac, char *av[], t_list *map)
 	return (1);
 }
 
-void f()
+void put_player(t_list *map, void *mlx, void *win)
 {
-	system("leaks so_long");
+    int i;
+    int j;
+    void *img;
+	int width;
+	int height;
+
+    img = mlx_xpm_file_to_image(mlx, PLAYER, &width, &height);
+    if (!img)
+        return;
+    i = 0;
+    while (map->map_2d[i])
+    {
+        j = 0;
+        while (map->map_2d[i][j])
+        {
+            if (map->map_2d[i][j] == 'P')
+            {
+                mlx_put_image_to_window(mlx, win, img, map->x * 64, map->y * 64);
+            }
+            j++;
+        }
+        i++;
+    }
 }
 
-int	main(int ac, char *av[])
+void put_walls(t_list *map, void *mlx, void *win)
 {
-	t_list	*map;
-	atexit(f);
-	map = malloc(sizeof(t_list));
-	if (!main_checks(ac, av, map))
-	{
-		ft_puterror();
-		return (0);
-	}
+    int i;
+    int j;
+    void *img;
+	int width;
+	int height;
 
+    img = mlx_xpm_file_to_image(mlx, WALL, &width, &height);
+    if (!img)
+        return;
+    i = 0;
+    while (map->map_2d[i])
+    {
+        j = 0;
+        while (map->map_2d[i][j])
+        {
+            if (map->map_2d[i][j] == '1')
+            {
+                mlx_put_image_to_window(mlx, win, img, j * 64, i * 64);
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+
+
+void put_coll(t_list *map, void *mlx, void *win)
+{
+    int i;
+    int j;
+    void *img;
+	int width;
+	int height;
+
+    img = mlx_xpm_file_to_image(mlx, COLL, &width, &height);
+    if (!img)
+        return;
+    i = 0;
+    while (map->map_2d[i])
+    {
+        j = 0;
+        while (map->map_2d[i][j])
+        {
+            if (map->map_2d[i][j] == 'C')
+            {
+                mlx_put_image_to_window(mlx, win, img, j * 64, i * 64);
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+
+void put_exit(t_list *map, void *mlx, void *win)
+{
+    int i;
+    int j;
+    void *img;
+	int width;
+	int height;
+
+    img = mlx_xpm_file_to_image(mlx, EXIT, &width, &height);
+    if (!img)
+        return;
+    i = 0;
+    while (map->map_2d[i])
+    {
+        j = 0;
+        while (map->map_2d[i][j])
+        {
+            if (map->map_2d[i][j] == 'E')
+            {
+                mlx_put_image_to_window(mlx, win, img, j * 64, i * 64);
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void find_cordinates(t_list *map)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (map->map_2d[i])
+    {
+        j = 0;
+        while (map->map_2d[i][j])
+        {
+            if (map->map_2d[i][j] == 'P')
+            {
+                map->x = j;
+				map->y = i;
+            }
+            j++;
+        }
+        i++;
+    }
 	
-	free(map->map_2d);
-	free(map->map);
-	free(map);
+}
+
+void eat_coll(t_list *map)
+{
+    if (map->map_2d[map->y][map->x] == 'C')
+    {
+        map->coll_number -= 1;
+        map->map_2d[map->y][map->x] = '0';
+    }
+}
+
+void win(t_list *map)
+{
+    if (map->map_2d[map->y][map->x] == 'E' && map->coll_number == 0)
+    {
+        printf("You won!\n");
+        exit(0);
+    }
+}
+
+void redraw_window(t_list *map, void *mlx, void *window)
+{
+    mlx_clear_window(mlx, window);
+    put_walls(map, mlx, window);
+    put_coll(map, mlx, window);
+    put_player(map, mlx, window);
+    put_exit(map, map->mlx, map->window);
+    win(map);
+}
+
+
+int key_hook(int keycode, t_list *map)
+{
+    if (keycode == 13)
+        if (map->y > 1 && map->map_2d[map->y - 1][map->x] != '1'
+        || map->map_2d[map->y - 1][map->x] == 'E')
+        {
+            map->y -= 1;
+            printf("up\n");
+        }
+    if (keycode == 1)
+        if (map->y < map->lines - 2 && map->map_2d[map->y + 1][map->x] != '1'
+        || map->map_2d[map->y - 1][map->x] == 'E')
+        {
+            map->y += 1;
+            printf("down\n");
+        }
+    if (keycode == 0)
+        if (map->x > 1 && map->map_2d[map->y][map->x - 1] != '1'
+        || map->map_2d[map->y - 1][map->x] == 'E')
+        {
+            map->x -= 1;
+            printf("left\n");
+        }
+    if (keycode == 2)
+        if (map->x < map->columns - 1 && map->map_2d[map->y][map->x + 1] != '1'
+        || map->map_2d[map->y - 1][map->x] == 'E')
+        {
+            map->x += 1;
+            printf("right\n");
+        }
+    eat_coll(map);
+    redraw_window(map, map->mlx, map->window);
+    return 0;
+}
+
+static int destroy_window(t_list *map)
+{
+    mlx_destroy_window(map->mlx, map->window);
+    exit (0);
+    // return 0;
+};
+
+void create_mlx_window(t_list *map)
+{
+    map->mlx = mlx_init();
+    map->window = mlx_new_window(map->mlx, map->columns * 64, map->lines * 64, "so_long");
+
+    put_walls(map, map->mlx, map->window);
+    put_coll(map, map->mlx, map->window);
+    put_player(map, map->mlx, map->window);
+
+    mlx_hook(map->window, 2, 1L<<0, key_hook, map);
+    mlx_hook(map->window, 17, 1L<<0, destroy_window, map);
+    mlx_loop(map->mlx);
+};
+
+int main(int ac, char *av[])
+{
+    t_list *map;
+    map = malloc(sizeof(t_list));
+    if (!main_checks(ac, av, map))
+    {
+        ft_puterror();
+        return (0);
+    }
+    find_cordinates(map);
+    create_mlx_window(map);
+    return 0;
 }

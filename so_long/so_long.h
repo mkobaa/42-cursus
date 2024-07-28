@@ -6,7 +6,7 @@
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 01:30:05 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/07/27 06:26:59 by mkobaa           ###   ########.fr       */
+/*   Updated: 2024/07/28 06:29:45 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+#include <mlx.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000000
+
+# define PLAYER "./ressources/pac.xpm"
+# define WALL "./ressources/wall.xpm"
+# define COLL "./ressources/apple.xpm"
+# define EXIT "./ressources/exit.xpm"
 
 # endif
 
@@ -34,6 +40,10 @@ typedef struct s_list
 	int		columns;
 	char	*map;
 	char	**map_2d;
+	int		x;
+	int		y;
+	void	*mlx;
+	void	*window;
 }	t_list;
 
 void		ft_puterror(void);
@@ -63,5 +73,6 @@ void		calculate_players(t_list *map);
 void		calculate_exit(t_list *map);
 int			lines_number(t_list *map);
 int			check_columns_walls(t_list *map);
+void	redraw_window(t_list *map, void *mlx, void *window);
 
 #endif
