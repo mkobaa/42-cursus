@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   file_checks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 01:34:06 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/08/01 06:18:55 by mkobaa           ###   ########.fr       */
+/*   Created: 2024/08/01 02:26:50 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/08/01 04:23:51 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char *av[])
+int	check_extension(char *s)
 {
-	t_list	*map;
+	int		i;
+	char	*extension;
 
-	map = malloc(sizeof(t_list));
-	if (!map)
+	extension = ".ber";
+	i = 0;
+	while (i < (ft_strlen(s) - 4))
+		i++;
+	if (ft_strncmp(&s[i], extension, 4))
+		return (1);
+	return (0);
+}
+
+int	check_file(int ac, char *av[], t_list *map)
+{
+	if (ac != 2 || check_extension(av[1]))
 		return (0);
-	if (!main_checks(ac, av, map))
+	if (map->fd == -1)
 		return (0);
-	create_map_copy(map);
-	create_text(map);
-	if (!check_flood_fill(map))
-		return (0);
-	create_mlx_window(map);
+	return (1);
 }

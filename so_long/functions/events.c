@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkobaa <mkobaa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 01:34:06 by mkobaa            #+#    #+#             */
-/*   Updated: 2024/08/01 06:18:55 by mkobaa           ###   ########.fr       */
+/*   Created: 2024/08/01 02:35:17 by mkobaa            #+#    #+#             */
+/*   Updated: 2024/08/01 04:39:49 by mkobaa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char *av[])
+void	eat_coll(t_list *map)
 {
-	t_list	*map;
+	if (map->map_2d[map->y][map->x] == 'C')
+	{
+		map->coll_number -= 1;
+		map->map_2d[map->y][map->x] = '0';
+	}
+}
 
-	map = malloc(sizeof(t_list));
-	if (!map)
-		return (0);
-	if (!main_checks(ac, av, map))
-		return (0);
-	create_map_copy(map);
-	create_text(map);
-	if (!check_flood_fill(map))
-		return (0);
-	create_mlx_window(map);
+void	win_function(t_list *map)
+{
+	if (map->map_2d[map->y][map->x] == 'E' && map->coll_number == 0)
+	{
+		ft_putstr("You won!");
+		exit(0);
+	}
 }
